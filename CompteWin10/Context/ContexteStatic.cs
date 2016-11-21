@@ -35,6 +35,7 @@ namespace CompteWin10.Context
         /// <summary>
         /// Clé de chiffrement pour les dossiers en roaming
         /// </summary>
+        public const string CleChiffrement = "Des caractères aléatoires pour faire une clé de chiffrement";
 
         /// <summary>
         /// Fichier des données de compte et de banque en roaming
