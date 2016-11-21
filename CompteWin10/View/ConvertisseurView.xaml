@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="CompteWin10.View.ConvertisseurView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CompteWin10.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:CompteWin10.Converter"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Resources>
+        <converter:StringDoubleConverter x:Key="ConverterStringDouble"/>
+    </Page.Resources>
+    <Grid x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NormalState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="350" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MonnaieATextBox.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="ConvertirGrid.(RelativePanel.RightOf)" Value="MonnaieAGrid"/>
+                        <Setter Target="MonnaieBGrid.(RelativePanel.RightOf)" Value="ConvertirGrid"/>
+
+                        <Setter Target="MonnaieATextBox.(RelativePanel.AlignTopWithPanel)" Value="False"/>
+                        <Setter Target="ConvertirGrid.(RelativePanel.Below)" Value=""/>
+                        <Setter Target="MonnaieBGrid.(RelativePanel.Below)" Value=""/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SpecialState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"  />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MonnaieATextBox.(RelativePanel.AlignTopWithPanel)" Value="True"/>
+                        <Setter Target="ConvertirGrid.(RelativePanel.Below)" Value="MonnaieAGrid"/>
+                        <Setter Target="MonnaieBGrid.(RelativePanel.Below)" Value="ConvertirGrid"/>
+
+                        <Setter Target="MonnaieATextBox.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
+                        <Setter Target="ConvertirGrid.(RelativePanel.LeftOf)" Value=""/>
+                        <Setter Target="MonnaieBGrid.(RelativePanel.LeftOf)" Value=""/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="TitreGrid" Grid.Row="0" Background="#FF51B651">
+            <TextBlock x:Uid="ConvertisseurText" Text="Convertisseur" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+            <RelativePanel>
+                <Grid x:Name="MonnaieAGrid">
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="MonnaieATextBox" Grid.Row="0" Grid.Column="0" InputScope="Number" Text="{x:Bind ViewModel.MonnaieA,Mode=TwoWay, Converter={StaticResource ConverterStringDouble }}" Margin="10" />
+                    <ComboBox x:Name="ComboBoxPaysA" Grid.Row="1" Grid.Column="0"  ItemsSource="{x:Bind ViewModel.ListePaysA, Mode=OneWay}" DisplayMemberPath="Libelle" SelectionChanged="PaysA_Changed" Margin="10" HorizontalAlignment="Center"/>
+                    <ComboBox x:Name="ComboBoxDeviseA" Grid.Row="1" Grid.Column="0"  ItemsSource="{x:Bind ViewModel.ListeDeviseA, Mode=OneWay}" DisplayMemberPath="Libelle" SelectionChanged="DeviseA_Changed" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+                </Grid>
+
+                <Grid x:Name="ConvertirGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="-->" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Margin="10" Grid.Row="1" Grid.Column="0" x:Name="ConvertButton" x:Uid="ConvertirContent" Content="Convertir" Width="100" Click="ConvertButton_OnClick"/>
+
+                </Grid>
+
+                <Grid x:Name="MonnaieBGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Grid.Column="0" IsEnabled="False" InputScope="Number" Text="{x:Bind ViewModel.MonnaieB,Mode=TwoWay, Converter={StaticResource ConverterStringDouble }}" Margin="10"/>
+                    <ComboBox x:Name="ComboBoxPaysB" Grid.Row="1" Grid.Column="0"  ItemsSource="{x:Bind ViewModel.ListePaysB, Mode=OneWay}" DisplayMemberPath="Libelle" SelectionChanged="PaysB_Changed" Margin="10" HorizontalAlignment="Center"/>
+                    <ComboBox x:Name="ComboBoxDeviseB" Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind ViewModel.ListeDeviseB, Mode=OneWay}" DisplayMemberPath="Libelle" SelectionChanged="DeviseB_Changed" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Bottom"/>
+
+                </Grid>
+            </RelativePanel>
+          </ScrollViewer>
+    </Grid>
+</Page> 

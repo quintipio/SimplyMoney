@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CompteWin10</RootNamespace>
+    <AssemblyName>CompteWin10</AssemblyName>
+    <DefaultLanguage>en</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="CompteWin10_StoreKey.pfx" />
+    <None Include="project.json" />
+    <PRIResource Include="Strings\pt\Resources.resw" />
+    <PRIResource Include="Strings\pt\Pays.resw" />
+    <PRIResource Include="Strings\pt\Errors.resw" />
+    <PRIResource Include="Strings\pt\Categories.resw" />
+    <PRIResource Include="Strings\es\Resources.resw" />
+    <PRIResource Include="Strings\es\Pays.resw" />
+    <PRIResource Include="Strings\es\Errors.resw" />
+    <PRIResource Include="Strings\es\Categories.resw" />
+    <PRIResource Include="Strings\en\Resources.resw" />
+    <PRIResource Include="Strings\en\Pays.resw" />
+    <PRIResource Include="Strings\en\Errors.resw" />
+    <PRIResource Include="Strings\en\Categories.resw" />
+    <PRIResource Include="Strings\fr\Pays.resw" />
+    <PRIResource Include="Strings\fr\Categories.resw" />
+    <PRIResource Include="Strings\fr\Errors.resw" />
+    <PRIResource Include="Strings\fr\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\AbstractBusiness.cs" />
+    <Compile Include="Abstract\AbstractViewModel.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Business\ApplicationBusiness.cs" />
+    <Compile Include="Business\BanqueBusiness.cs" />
+    <Compile Include="Business\CategorieBusiness.cs" />
+    <Compile Include="Business\CompteBusiness.cs" />
+    <Compile Include="Business\EcheancierBusiness.cs" />
+    <Compile Include="Business\MouvementBusiness.cs" />
+    <Compile Include="Converter\DoubleColorConverter.cs" />
+    <Compile Include="Enum\ModeOuvertureGestionCategorieEnum.cs" />
+    <Compile Include="Model\Devise.cs" />
+    <Compile Include="Model\EnumModel.cs" />
+    <Compile Include="Model\SauvegardeModel.cs" />
+    <Compile Include="Model\Pays.cs" />
+    <Compile Include="Model\SoldeInitial.cs" />
+    <Compile Include="Roaming\Business\RoamingCategorieBusiness.cs" />
+    <Compile Include="Roaming\Business\RoamingCompteBusiness.cs" />
+    <Compile Include="Roaming\Business\RoamingEcheancierBusiness.cs" />
+    <Compile Include="Roaming\Business\RoamingMouvementBusiness.cs" />
+    <Compile Include="Com\ComFile.cs" />
+    <Compile Include="Com\ComSqlite.cs" />
+    <Compile Include="Context\ContexteStatic.cs" />
+    <Compile Include="Converter\DateStringConverter.cs" />
+    <Compile Include="Converter\DateTimeToDateTimeOFfsetConverter.cs" />
+    <Compile Include="Converter\IntStringConverter.cs" />
+    <Compile Include="Converter\BoolVisibilityConverter.cs" />
+    <Compile Include="Converter\CompteObjectConverter.cs" />
+    <Compile Include="Converter\SousCategorieStringConverter.cs" />
+    <Compile Include="Converter\SousCategorieObjectConverter.cs" />
+    <Compile Include="Converter\TypeMouvementObjectConverter.cs" />
+    <Compile Include="Converter\StringDoubleConverter.cs" />
+    <Compile Include="Enum\AppareilEnum.cs" />
+    <Compile Include="Enum\ModeOuvertureGestionCompteBanqueEnum.cs" />
+    <Compile Include="Enum\MouvementEnum.cs" />
+    <Compile Include="Enum\PeriodiciteEnum.cs" />
+    <Compile Include="Interface\IAsyncInitialization.cs" />
+    <Compile Include="Interface\IView.cs" />
+    <Compile Include="Model\Application.cs" />
+    <Compile Include="Model\Banque.cs" />
+    <Compile Include="Model\Categorie.cs" />
+    <Compile Include="Roaming\Model\RoamingCategorieModel.cs" />
+    <Compile Include="Roaming\Model\RoamingEcheancierModel.cs" />
+    <Compile Include="Roaming\Model\RoamingMouvementModel.cs" />
+    <Compile Include="Model\SousCategorie.cs" />
+    <Compile Include="Model\TypeMouvement.cs" />
+    <Compile Include="Model\Compte.cs" />
+    <Compile Include="Model\Echeancier.cs" />
+    <Compile Include="Model\Mouvement.cs" />
+    <Compile Include="Roaming\Model\RoamingCompteModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\ListeLangues.cs" />
+    <Compile Include="Utils\CryptUtils.cs" />
+    <Compile Include="Utils\DateUtils.cs" />
+    <Compile Include="Utils\DeviseUtils.cs" />
+    <Compile Include="Utils\MessageBox.cs" />
+    <Compile Include="Context\ContexteAppli.cs" />
+    <Compile Include="Utils\RoamingUtils.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
+    <Compile Include="ViewModel\Properties\ConvertisseurProperties.cs" />
+    <Compile Include="ViewModel\Properties\EcheancierProperties.cs" />
+    <Compile Include="ViewModel\Properties\GestionCategorieProperties.cs" />
+    <Compile Include="ViewModel\Properties\GestionCompteBanqueProperties.cs" />
+    <Compile Include="ViewModel\Properties\SauvegardeRestaurationProperties.cs" />
+    <Compile Include="ViewModel\Properties\MouvementProperties.cs" />
+    <Compile Include="ViewModel\Properties\ParametresProperties.cs" />
+    <Compile Include="ViewModel\Properties\StatsProperties.cs" />
+    <Compile Include="ViewModel\ViewModel\AcceuilViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\ConvertisseurViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\DemarrageViewModel.cs" />
+    <Compile Include="ViewModel\Properties\AcceuilProperties.cs" />
+    <Compile Include="ViewModel\Properties\DemarrageProperties.cs" />
+    <Compile Include="ViewModel\ViewModel\EcheancierViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\GestionCategorieViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\GestionCompteBanqueViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\SauvegardeRestaurationViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\MouvementViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\ParametresViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel\StatsViewModel.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AcceuilView.xaml.cs">
+      <DependentUpon>AcceuilView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConvertisseurView.xaml.cs">
+      <DependentUpon>ConvertisseurView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DemarrageView.xaml.cs">
+      <DependentUpon>DemarrageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EcheancierView.xaml.cs">
+      <DependentUpon>EcheancierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionCategorieView.xaml.cs">
+      <DependentUpon>GestionCategorieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionCompteBanque.xaml.cs">
+      <DependentUpon>GestionCompteBanque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SauvegardeRestaurationView.xaml.cs">
+      <DependentUpon>SauvegardeRestaurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MouvementView.xaml.cs">
+      <DependentUpon>MouvementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OutilsView.xaml.cs">
+      <DependentUpon>OutilsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ParametresView.xaml.cs">
+      <DependentUpon>ParametresView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StatistiquesView.xaml.cs">
+      <DependentUpon>StatistiquesView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="CompteWin10_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square310x310Logo.scale-100.png" />
+    <Content Include="Assets\Square310x310Logo.scale-200.png" />
+    <Content Include="Assets\Square310x310Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square71x71Logo.scale-100.png" />
+    <Content Include="Assets\Square71x71Logo.scale-200.png" />
+    <Content Include="Assets\Square71x71Logo.scale-400.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AcceuilView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConvertisseurView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DemarrageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EcheancierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionCategorieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionCompteBanque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SauvegardeRestaurationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MouvementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OutilsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ParametresView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StatistiquesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.14.0">
+      <Name>SQLite for Universal Windows Platform</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

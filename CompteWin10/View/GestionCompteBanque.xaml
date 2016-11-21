@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="CompteWin10.View.GestionCompteBanque"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CompteWin10.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:CompteWin10.Converter"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Resources>
+        <converter:StringDoubleConverter x:Key="ConverterStringDouble"/>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="TitreGrid" Grid.Row="0" Background="#FF51B651">
+                <TextBlock x:Name="InfoPageTextBlock" Text="Gestion compte et banque" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+            
+            <StackPanel  Grid.Row="1" Margin="0" x:Name="Donnees" Background="#FFD8D8D8" HorizontalAlignment="Center" Padding="13,0" VerticalAlignment="Center">
+                <TextBlock x:Name="TitreTextBlock" Text="Création / Modification"  Margin="0,10,0,0"/>
+                <TextBlock Text="Nom : " x:Uid="NomText" Margin="0,10,0,0"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Margin="0,5,0,0" Text="{x:Bind ViewModel.Nom, Mode=TwoWay}"/>
+                
+                <!--special compte -->
+                <TextBlock x:Name="SoldeTextBlock" Text="Solde initial : " x:Uid="SoldeInitialText" Margin="0,10,0,0" />
+                <Grid x:Name="SoldeGrid" Margin="0,5,0,0" Width="82" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top"  Width="50" InputScope="Number" Text="{x:Bind ViewModel.Solde, Mode=TwoWay, Converter={StaticResource ConverterStringDouble}}"/>
+                    <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Text="{x:Bind ViewModel.SelectedDevise.Signe, Mode=OneWay}"/>
+                </Grid>
+                
+                <!--special banque -->
+                <TextBlock x:Name="PaysTextBlock" Text="Pays : " x:Uid="PaysText" Margin="0,10,0,0"/>
+                <ComboBox x:Name="PaysComboBox" Margin="0,5,0,0" ItemsSource="{x:Bind ViewModel.ListePays, Mode=OneWay}" DisplayMemberPath="Libelle" SelectionChanged="PaysComboBox_SelectionChanged"  />
+                <TextBlock x:Name="DeviseTextBlock" Text="Devise : " x:Uid="DeviseText" Margin="0,10,0,0"/>
+                <ComboBox x:Name="DeviseComboBox" Margin="0,5,0,0" ItemsSource="{x:Bind ViewModel.ListeDevise , Mode=OneWay}" DisplayMemberPath="Libelle" SelectionChanged="DeviseComboBox_SelectionChanged"  />
+                <Grid Margin="0,15,0,10">
+                    <Button x:Name="ValiderButton" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ValiderButton_Click" />
+                    <Button x:Name="AnnulerButton" Content="Annuler" x:Uid="AnnulerContent" HorizontalAlignment="right" VerticalAlignment="Center" Click="AnnulerButton_Click" />
+                </Grid>
+                </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

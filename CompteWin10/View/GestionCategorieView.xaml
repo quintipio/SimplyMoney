@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="CompteWin10.View.GestionCategorieView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CompteWin10.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:CompteWin10.Converter"
+    mc:Ignorable="d" KeyUp="Page_KeyUp">
+    <Page.Resources>
+        <converter:BoolVisibilityConverter x:Key="ConverterBoolVisible"/>
+    </Page.Resources>
+    
+    
+    <Grid x:Name="Root" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="TitreGrid" Grid.Row="0" Background="#FF51B651">
+                <TextBlock x:Uid="GestionCategorieText" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF939393" Padding="10" x:Name="GridChangeLibelle" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0"  >
+                        <TextBlock Text="Libelle " x:Uid="LibelleText" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox x:Name="LibelleTextBox" HorizontalAlignment="Right" Text="{x:Bind ViewModel.LibelleSelected,Mode=TwoWay}" Margin="75,0,0,0" Width="125"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" HorizontalAlignment="Center">
+                         <Grid.ColumnDefinitions>
+                             <ColumnDefinition/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Valide" x:Uid="ValiderContent" Click="ValiderLibelle_Click" Margin="0,10,10,0"/>
+                        <Button Grid.Column="1" Content="Annule" x:Uid="AnnulerContent" Click="AnnulerLibelle_Click" Margin="0,10,0,0"/>
+                    </Grid>
+                    
+                </Grid>
+
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Visibility="Visible" x:Name="GridListe">
+                    <ListView SelectionMode="None" ItemsSource="{x:Bind ViewModel.ListeCateg, Mode=OneWay}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <Grid BorderBrush="Black" BorderThickness="2" Margin="10" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Text="{Binding Libelle}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                                    <ListView Grid.Row="1" SelectionMode="None" ItemsSource="{Binding SousCategorieList, Mode=OneWay}">
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <TextBlock Text="{Binding Libelle}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    <AppBarButton Icon="Edit" Grid.Column="1" IsCompact="True" Tag="{Binding}" Click="EditSousCategorie_Clic" Visibility="{Binding IsVisibleForModif,  Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
+                                                    <AppBarButton Icon="Clear" Grid.Column="2" IsCompact="True" Tag="{Binding}" Click="DeleteSousCategorie_Clic" Visibility="{Binding IsVisibleForModif, Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                    <Grid Grid.Row="2" HorizontalAlignment="Center">
+                                        <AppBarButton Icon="Edit" IsCompact="True"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100,0,0,0" Tag="{Binding}" Click="EditCategorie_Clic" Visibility="{Binding IsVisibleForModif , Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
+                                        <AppBarButton Icon="Add" IsCompact="True"  HorizontalAlignment="Center" VerticalAlignment="Center" Tag="{Binding}" Click="AddSousCategorie_Clic" />
+                                        <AppBarButton Icon="Clear" IsCompact="True" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,100,0" Tag="{Binding}" Click="DeleteCategorie_Clic" Visibility="{Binding IsVisibleForModif, Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
+                                    </Grid>
+                                </Grid>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+
+                <AppBarButton x:Name="AddCategorieButton" IsCompact="True" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="AddCategorie_Click" Icon="Add"/>
+            </Grid>
+        </Grid>
+     </Grid>
+</Page>

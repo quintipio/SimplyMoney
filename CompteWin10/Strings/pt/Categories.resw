@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AbonnementTV" xml:space="preserve">
+    <value>TV por assinatura</value>
+  </data>
+  <data name="Alimentation" xml:space="preserve">
+    <value>Fornecimento</value>
+  </data>
+  <data name="AlimentationAnimaux" xml:space="preserve">
+    <value>Fornecimento</value>
+  </data>
+  <data name="AllocChom" xml:space="preserve">
+    <value>Prestações de desemprego</value>
+  </data>
+  <data name="AllocFam" xml:space="preserve">
+    <value>Subsídio Familly</value>
+  </data>
+  <data name="Ameublement" xml:space="preserve">
+    <value>Mobiliário</value>
+  </data>
+  <data name="AnimauxDomestiques" xml:space="preserve">
+    <value>Animais de estimação</value>
+  </data>
+  <data name="Assurance" xml:space="preserve">
+    <value>Seguro</value>
+  </data>
+  <data name="Automobile" xml:space="preserve">
+    <value>Automotivo</value>
+  </data>
+  <data name="AutrImp" xml:space="preserve">
+    <value>Outros impostos</value>
+  </data>
+  <data name="Bar" xml:space="preserve">
+    <value>Bar</value>
+  </data>
+  <data name="Boucher" xml:space="preserve">
+    <value>Açougueiro</value>
+  </data>
+  <data name="Boulangerie" xml:space="preserve">
+    <value>Padaria</value>
+  </data>
+  <data name="Bowling" xml:space="preserve">
+    <value>Boliche</value>
+  </data>
+  <data name="Bricolage" xml:space="preserve">
+    <value>Habitação</value>
+  </data>
+  <data name="Bus" xml:space="preserve">
+    <value>Ônibus</value>
+  </data>
+  <data name="Cadeau" xml:space="preserve">
+    <value>Dom</value>
+  </data>
+  <data name="CadeauxEnfants" xml:space="preserve">
+    <value>Presentes</value>
+  </data>
+  <data name="Caution" xml:space="preserve">
+    <value>Fiança</value>
+  </data>
+  <data name="Charges" xml:space="preserve">
+    <value>Cargas</value>
+  </data>
+  <data name="Chauffage" xml:space="preserve">
+    <value>Aquecimento</value>
+  </data>
+  <data name="Cinema" xml:space="preserve">
+    <value>Filme</value>
+  </data>
+  <data name="Coiffeur" xml:space="preserve">
+    <value>Cabeleireiro</value>
+  </data>
+  <data name="Cours" xml:space="preserve">
+    <value>Curso</value>
+  </data>
+  <data name="Creche" xml:space="preserve">
+    <value>Berçário</value>
+  </data>
+  <data name="Deco" xml:space="preserve">
+    <value>Decoração</value>
+  </data>
+  <data name="Demenagement" xml:space="preserve">
+    <value>Jogada</value>
+  </data>
+  <data name="Discotheque" xml:space="preserve">
+    <value>Discoteca</value>
+  </data>
+  <data name="Eau" xml:space="preserve">
+    <value>Água</value>
+  </data>
+  <data name="Elec" xml:space="preserve">
+    <value>Eletricidade</value>
+  </data>
+  <data name="Electromenager" xml:space="preserve">
+    <value>Eletrodomésticos</value>
+  </data>
+  <data name="Emprunt" xml:space="preserve">
+    <value>Contracção</value>
+  </data>
+  <data name="Enfants" xml:space="preserve">
+    <value>Crianças</value>
+  </data>
+  <data name="Entretien" xml:space="preserve">
+    <value>Manutenção</value>
+  </data>
+  <data name="Epicier" xml:space="preserve">
+    <value>Merceeiro</value>
+  </data>
+  <data name="Equipement" xml:space="preserve">
+    <value>Equipamento</value>
+  </data>
+  <data name="EquipementLois" xml:space="preserve">
+    <value>Equipamento</value>
+  </data>
+  <data name="Essence" xml:space="preserve">
+    <value>Gasolina</value>
+  </data>
+  <data name="Esthetique" xml:space="preserve">
+    <value>Estética</value>
+  </data>
+  <data name="Etudes" xml:space="preserve">
+    <value>Educação</value>
+  </data>
+  <data name="EtudesEnfants" xml:space="preserve">
+    <value>Educação</value>
+  </data>
+  <data name="Fournitures" xml:space="preserve">
+    <value>Suprimentos</value>
+  </data>
+  <data name="FraisBancaire" xml:space="preserve">
+    <value>Despesas bancárias</value>
+  </data>
+  <data name="FraisBancaires" xml:space="preserve">
+    <value>Os encargos bancários</value>
+  </data>
+  <data name="FraisDiversEnfants" xml:space="preserve">
+    <value>Frais Divers</value>
+  </data>
+  <data name="FraisScola" xml:space="preserve">
+    <value>Propinas escolares</value>
+  </data>
+  <data name="Gaz" xml:space="preserve">
+    <value>Gás</value>
+  </data>
+  <data name="Habillement" xml:space="preserve">
+    <value>Roupas</value>
+  </data>
+  <data name="Habitation" xml:space="preserve">
+    <value>Casa</value>
+  </data>
+  <data name="Hopital" xml:space="preserve">
+    <value>Hopital</value>
+  </data>
+  <data name="Hotel" xml:space="preserve">
+    <value>Hotel</value>
+  </data>
+  <data name="ImpLoc" xml:space="preserve">
+    <value>Os impostos locais</value>
+  </data>
+  <data name="Impots" xml:space="preserve">
+    <value>Impostos</value>
+  </data>
+  <data name="ImpRev" xml:space="preserve">
+    <value>Imposto de renda</value>
+  </data>
+  <data name="Informatique" xml:space="preserve">
+    <value>Informática</value>
+  </data>
+  <data name="Interets" xml:space="preserve">
+    <value>Interesses</value>
+  </data>
+  <data name="Jardin" xml:space="preserve">
+    <value>Jardim</value>
+  </data>
+  <data name="Jeu" xml:space="preserve">
+    <value>Jogo</value>
+  </data>
+  <data name="Jeux" xml:space="preserve">
+    <value>Jogos</value>
+  </data>
+  <data name="Lecture" xml:space="preserve">
+    <value>Leitura</value>
+  </data>
+  <data name="Liquide" xml:space="preserve">
+    <value>Líquido</value>
+  </data>
+  <data name="Livres" xml:space="preserve">
+    <value>Livros</value>
+  </data>
+  <data name="Logement" xml:space="preserve">
+    <value>Habitação</value>
+  </data>
+  <data name="Loisirs" xml:space="preserve">
+    <value>Interesses</value>
+  </data>
+  <data name="Loyer" xml:space="preserve">
+    <value>Aluguel</value>
+  </data>
+  <data name="Massage" xml:space="preserve">
+    <value>Massagem</value>
+  </data>
+  <data name="Medecin" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="MedecinEnfants" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="Metro" xml:space="preserve">
+    <value>Metro</value>
+  </data>
+  <data name="Musee" xml:space="preserve">
+    <value>Museu</value>
+  </data>
+  <data name="Mutuelle" xml:space="preserve">
+    <value>Saúde Mutual</value>
+  </data>
+  <data name="Nourrice" xml:space="preserve">
+    <value>Enfermeira</value>
+  </data>
+  <data name="Onglerie" xml:space="preserve">
+    <value>Onglerie</value>
+  </data>
+  <data name="Parc" xml:space="preserve">
+    <value>Parque</value>
+  </data>
+  <data name="Parfumerie" xml:space="preserve">
+    <value>Perfumaria</value>
+  </data>
+  <data name="Peage" xml:space="preserve">
+    <value>Pedágio</value>
+  </data>
+  <data name="Pharmacie" xml:space="preserve">
+    <value>Farmácia</value>
+  </data>
+  <data name="Prime" xml:space="preserve">
+    <value>Prêmio</value>
+  </data>
+  <data name="Remboursement" xml:space="preserve">
+    <value>Reembolso</value>
+  </data>
+  <data name="Reparation" xml:space="preserve">
+    <value>Reparação</value>
+  </data>
+  <data name="ResponsabiliteCivile" xml:space="preserve">
+    <value>Responsabilidade</value>
+  </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Restaurante</value>
+  </data>
+  <data name="Retaite" xml:space="preserve">
+    <value>Aposentadoria</value>
+  </data>
+  <data name="Revenus" xml:space="preserve">
+    <value>Ganhos</value>
+  </data>
+  <data name="Salaire" xml:space="preserve">
+    <value>Salário Net</value>
+  </data>
+  <data name="salarieDomi" xml:space="preserve">
+    <value>Empregado em casa</value>
+  </data>
+  <data name="Sante" xml:space="preserve">
+    <value>Saúde</value>
+  </data>
+  <data name="Santé" xml:space="preserve">
+    <value>Saúde</value>
+  </data>
+  <data name="Secu" xml:space="preserve">
+    <value>Bem-estar social</value>
+  </data>
+  <data name="Self" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Soins" xml:space="preserve">
+    <value>Cuidado</value>
+  </data>
+  <data name="Spectacle" xml:space="preserve">
+    <value>Mostra</value>
+  </data>
+  <data name="Sport" xml:space="preserve">
+    <value>Esporte</value>
+  </data>
+  <data name="Stationnement" xml:space="preserve">
+    <value>Estacionamento</value>
+  </data>
+  <data name="Supermarche" xml:space="preserve">
+    <value>Supermercado</value>
+  </data>
+  <data name="TaxFonc" xml:space="preserve">
+    <value>Imposto sobre a propriedade</value>
+  </data>
+  <data name="TelFix" xml:space="preserve">
+    <value>Telefone</value>
+  </data>
+  <data name="TelMob" xml:space="preserve">
+    <value>Telefone móvel</value>
+  </data>
+  <data name="Toilettage" xml:space="preserve">
+    <value>Grooming</value>
+  </data>
+  <data name="Train" xml:space="preserve">
+    <value>Trem</value>
+  </data>
+  <data name="Traiteur" xml:space="preserve">
+    <value>Fornecedor</value>
+  </data>
+  <data name="Tram" xml:space="preserve">
+    <value>Bonde</value>
+  </data>
+  <data name="Transport" xml:space="preserve">
+    <value>Transporte</value>
+  </data>
+  <data name="Veterinaire" xml:space="preserve">
+    <value>Veterinário</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Vídeo</value>
+  </data>
+  <data name="Vie" xml:space="preserve">
+    <value>Vida</value>
+  </data>
+  <data name="Voiture" xml:space="preserve">
+    <value>Carro</value>
+  </data>
+  <data name="Voyage" xml:space="preserve">
+    <value>Viagem</value>
+  </data>
+</root>

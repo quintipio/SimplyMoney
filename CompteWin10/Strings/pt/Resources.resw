@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1anText" xml:space="preserve">
+    <value>Ano passado</value>
+  </data>
+  <data name="1moisText" xml:space="preserve">
+    <value>Mês passado</value>
+  </data>
+  <data name="3moisText" xml:space="preserve">
+    <value>3 no mês passado</value>
+  </data>
+  <data name="6moisText" xml:space="preserve">
+    <value>6 No mês passado</value>
+  </data>
+  <data name="7joursText" xml:space="preserve">
+    <value>Últimos 7 dias</value>
+  </data>
+  <data name="AcceuilText.Text" xml:space="preserve">
+    <value>Minhas contas</value>
+  </data>
+  <data name="AjouterBanqueText" xml:space="preserve">
+    <value>Criar um banco</value>
+  </data>
+  <data name="AjouterCompteText" xml:space="preserve">
+    <value>Criar uma conta</value>
+  </data>
+  <data name="AjouterText" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="AnnuelText" xml:space="preserve">
+    <value>Anual</value>
+  </data>
+  <data name="Annuler" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="AnnulerContent.Content" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="AppareilPrincipalDescText.Text" xml:space="preserve">
+    <value>Será um dispositivo que contém todas as informações de contabilidade. É aconselhável ter um.</value>
+  </data>
+  <data name="AppareilPrincipalText.Text" xml:space="preserve">
+    <value>Unidade principal</value>
+  </data>
+  <data name="AppareilSecondaireDescText.Text" xml:space="preserve">
+    <value>Vai ser um dispositivo de envio de informações para a unidade principal e com um mínimo de informações sobre contas</value>
+  </data>
+  <data name="AppareilSecondaireText.Text" xml:space="preserve">
+    <value>Câmera secundária</value>
+  </data>
+  <data name="AppdText.Text" xml:space="preserve">
+    <value>Sobre ...</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Atenção</value>
+  </data>
+  <data name="AttentionRestaurer" xml:space="preserve">
+    <value>Aviso! importar um arquivo irá substituir todos os dados presentes no aplicativo. Quer continuar?</value>
+  </data>
+  <data name="AttentionText" xml:space="preserve">
+    <value>Atenção</value>
+  </data>
+  <data name="AucunText" xml:space="preserve">
+    <value>Nenhuma</value>
+  </data>
+  <data name="BimestrielText" xml:space="preserve">
+    <value>Bimestral</value>
+  </data>
+  <data name="CarteBleue" xml:space="preserve">
+    <value>Cartão de crédito</value>
+  </data>
+  <data name="CategorieContent.Content" xml:space="preserve">
+    <value>Categorias</value>
+  </data>
+  <data name="CategorieText.Text" xml:space="preserve">
+    <value>Categoria:</value>
+  </data>
+  <data name="Cheque" xml:space="preserve">
+    <value>Verificar</value>
+  </data>
+  <data name="ChoixLangueText.Text" xml:space="preserve">
+    <value>Selecione o idioma do aplicativo:</value>
+  </data>
+  <data name="ComentaireText.Text" xml:space="preserve">
+    <value>Comentário:</value>
+  </data>
+  <data name="CompteContent.Content" xml:space="preserve">
+    <value>Contas</value>
+  </data>
+  <data name="CompteEcheancierText.Text" xml:space="preserve">
+    <value>Por conta:</value>
+  </data>
+  <data name="ConvertirContent.Content" xml:space="preserve">
+    <value>Converter</value>
+  </data>
+  <data name="ConvertisseurText.Text" xml:space="preserve">
+    <value>Conversor</value>
+  </data>
+  <data name="CouleurText.Text" xml:space="preserve">
+    <value>Alterar aplicação Tema</value>
+  </data>
+  <data name="CourbeDepenseText.Text" xml:space="preserve">
+    <value>Despesas Curva</value>
+  </data>
+  <data name="CreditText.Text" xml:space="preserve">
+    <value>Crédito:</value>
+  </data>
+  <data name="CreerBanqueText.Text" xml:space="preserve">
+    <value>Criação do banco:</value>
+  </data>
+  <data name="CreerCompteText.Text" xml:space="preserve">
+    <value>Criação de contas:</value>
+  </data>
+  <data name="DateEcheancierText.Text" xml:space="preserve">
+    <value>Data da próxima operação:</value>
+  </data>
+  <data name="DateLimiteEcheancierContent.Content" xml:space="preserve">
+    <value>Cronograma Prazo:</value>
+  </data>
+  <data name="DateText.Text" xml:space="preserve">
+    <value>Data:</value>
+  </data>
+  <data name="DebitText.Text" xml:space="preserve">
+    <value>Caudal:</value>
+  </data>
+  <data name="DepenseCategorieText.Text" xml:space="preserve">
+    <value>As despesas por categorias</value>
+  </data>
+  <data name="DeveloppeurText.Text" xml:space="preserve">
+    <value>Desenvolvedor:</value>
+  </data>
+  <data name="DeviseText.Text" xml:space="preserve">
+    <value>Moeda:</value>
+  </data>
+  <data name="EchancierText.Text" xml:space="preserve">
+    <value>Horário</value>
+  </data>
+  <data name="EcheancierContent.Content" xml:space="preserve">
+    <value>Horário</value>
+  </data>
+  <data name="EspaceDispo" xml:space="preserve">
+    <value>Espaço disponível ocupada:</value>
+  </data>
+  <data name="FiltreText.Text" xml:space="preserve">
+    <value>Filtros:</value>
+  </data>
+  <data name="GestionCategorieText.Text" xml:space="preserve">
+    <value>Gerenciamento de Categoria</value>
+  </data>
+  <data name="HebdomadaireText" xml:space="preserve">
+    <value>Semanal</value>
+  </data>
+  <data name="InfoSynchroText.Text" xml:space="preserve">
+    <value>A sincronização espaço sincroniza os movimentos do dispositivo secundário ou contas de poupança, prazos e categorias.</value>
+  </data>
+  <data name="LibelleText.Text" xml:space="preserve">
+    <value>Libel:</value>
+  </data>
+  <data name="MensuelText" xml:space="preserve">
+    <value>Mensal</value>
+  </data>
+  <data name="MenuContent.Content" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="ModifierBanqueText" xml:space="preserve">
+    <value>Editar um banco</value>
+  </data>
+  <data name="ModifierCompteText" xml:space="preserve">
+    <value>Editar Conta</value>
+  </data>
+  <data name="ModifierText" xml:space="preserve">
+    <value>Mudança</value>
+  </data>
+  <data name="MotDePasseContent.Content" xml:space="preserve">
+    <value>Senha (para criptografar o arquivo):</value>
+  </data>
+  <data name="MouvementText.Text" xml:space="preserve">
+    <value>Movimento:</value>
+  </data>
+  <data name="NBJoursText.Text" xml:space="preserve">
+    <value>Número de dias</value>
+  </data>
+  <data name="NomText.Text" xml:space="preserve">
+    <value>Nome:</value>
+  </data>
+  <data name="non" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="NouveauteesContenu.Text" xml:space="preserve">
+    <value>v1.1.3 :
+-Corrigido um bug no registro de contas.
+-Em ordem alfabética categorias e subcategorias.
+-Exposição da soma de todas as contas para os bancos.
+-Adição de Português.
+
+v1.1.2: 
+
+-Correções de bugs na execução de cronogramas
+ 
+-Política de privacidade adicionado
+
+
+v 1.1.1: 
+
+-Gráficos vários bugs correções. 
+
+-Adicione páginas de navegação sobre os movimentos da lista de contas.
+
+
+v1.1.0.0:
+ 
+-Criando a aplicação</value>
+  </data>
+  <data name="NouveauteesText.Text" xml:space="preserve">
+    <value>Novos produtos:</value>
+  </data>
+  <data name="NumeroText.Text" xml:space="preserve">
+    <value>Número:</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="oui" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="OuText.Text" xml:space="preserve">
+    <value>ou</value>
+  </data>
+  <data name="OutilsContent.Content" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
+  <data name="OutilsText.Text" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
+  <data name="ParametresContent.Content" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="ParametresText.Text" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="ParcourirContent.Content" xml:space="preserve">
+    <value>Viagem</value>
+  </data>
+  <data name="PasseContent.Content" xml:space="preserve">
+    <value>Passado</value>
+  </data>
+  <data name="PaysText.Text" xml:space="preserve">
+    <value>País:</value>
+  </data>
+  <data name="PeriodeText.Text" xml:space="preserve">
+    <value>Período:</value>
+  </data>
+  <data name="PeriodiciteText.Text" xml:space="preserve">
+    <value>Repetir:</value>
+  </data>
+  <data name="PersonaliseText" xml:space="preserve">
+    <value>Personalizado</value>
+  </data>
+  <data name="PolitiqueConf.Text" xml:space="preserve">
+    <value>Informações pessoais: 
+
+Este aplicativo não coleta nenhuma informação pessoal que possa identificá-lo. Todas as informações coletadas são preenchidas explicitamente pelo usuário durante o uso do aplicativo. Nenhuma dessas informações é transmitida através de servidores de terceiros, feitas público ou compartilhado através da internet, o aplicativo não tinha direitos para se comunicar com a internet. Toda a informação recolhida é armazenada numa base de dados restante localmente no dispositivo na pasta localState da aplicação da sua conta de usuário. 
+Informações compartilhadas entre os dispositivos usando o aplicativo sistematicamente são criptografados e são acessíveis somente por sua conta microsoft associada com a instalação do aplicativo e o aplicativo em si. Nunca deixe o seu ambiente e estes dados são transmitidos entre dispositivos através de sua nuvem microsoft específicas da conta de usuário.
+
+
+Dúvidas ou informações: 
+
+Se você tiver alguma dúvida sobre a política de privacidade, você pode enviar uma mensagem para qdelfour@gmail.com o e-mail.</value>
+  </data>
+  <data name="PolitiqueConfText.Text" xml:space="preserve">
+    <value>Política de privacidade:</value>
+  </data>
+  <data name="Prelevement" xml:space="preserve">
+    <value>Levy</value>
+  </data>
+  <data name="PremierDemarrageText.Text" xml:space="preserve">
+    <value>Primeiro Arranque</value>
+  </data>
+  <data name="QuotidienText" xml:space="preserve">
+    <value>Diariamente</value>
+  </data>
+  <data name="RedemarrageRequisText.Text" xml:space="preserve">
+    <value>A mudança completa neste cenário será refletido após a reinicialização do aplicativo.</value>
+  </data>
+  <data name="ReinitAllContent.Content" xml:space="preserve">
+    <value>Também apagar os dados compartilhados (dados da mancha para todos os dispositivos)</value>
+  </data>
+  <data name="ReinitAppButtonContent.Content" xml:space="preserve">
+    <value>Aplicação de reset</value>
+  </data>
+  <data name="ReinitButtonContent.Content" xml:space="preserve">
+    <value>Repor</value>
+  </data>
+  <data name="ReinitInfoText.Text" xml:space="preserve">
+    <value>Atenção: isto irá apagar todos os dados sobre a aplicação da presente pc. Quer continuar?</value>
+  </data>
+  <data name="RestaurerText.Text" xml:space="preserve">
+    <value>Dados Restaurar</value>
+  </data>
+  <data name="RestaureText" xml:space="preserve">
+    <value>Restauração</value>
+  </data>
+  <data name="SauvegarderText.Text" xml:space="preserve">
+    <value>Data Backup</value>
+  </data>
+  <data name="SauvegardeText" xml:space="preserve">
+    <value>Salvaguardar</value>
+  </data>
+  <data name="SoldeInitialText.Text" xml:space="preserve">
+    <value>Saldo inicial:</value>
+  </data>
+  <data name="StatistiqueContent.Content" xml:space="preserve">
+    <value>Estatísticas</value>
+  </data>
+  <data name="StatText.Text" xml:space="preserve">
+    <value>Estatísticas</value>
+  </data>
+  <data name="SupprimerBanqueText" xml:space="preserve">
+    <value>Atenção excluir este banco é uma ação irreversível e apagar todos os dados associados (incluindo contas). Quer continuar?</value>
+  </data>
+  <data name="SupprimerCompteText" xml:space="preserve">
+    <value>Atenção eliminar esta conta é uma ação irreversível e apagar todos os dados associados. Quer continuar?</value>
+  </data>
+  <data name="SupprimerContent.Content" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="SynchroCategorieText.Text" xml:space="preserve">
+    <value>Habilitar categorias de log na pasta de compartilhamento</value>
+  </data>
+  <data name="SynchroCompteText.Text" xml:space="preserve">
+    <value>Espaço ocupado pelo arquivo que contém as informações da conta na pasta de compartilhamento</value>
+  </data>
+  <data name="SynchroEcheancierText.Text" xml:space="preserve">
+    <value>Ativar horários de gravação na pasta de compartilhamento</value>
+  </data>
+  <data name="SynchroMouvementText.Text" xml:space="preserve">
+    <value>Espaço ocupado pelo arquivo que contém os movimentos pendentes adição na pasta de compartilhamento</value>
+  </data>
+  <data name="SynchroText.Text" xml:space="preserve">
+    <value>Gerenciando a sincronização de espaço:</value>
+  </data>
+  <data name="textEN" xml:space="preserve">
+    <value>Inglês</value>
+  </data>
+  <data name="textES" xml:space="preserve">
+    <value>Espanhol</value>
+  </data>
+  <data name="textFR" xml:space="preserve">
+    <value>Francês</value>
+  </data>
+  <data name="textPT" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="TrimestrielText" xml:space="preserve">
+    <value>Trimestral</value>
+  </data>
+  <data name="TypeText.Text" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="ValiderAjouterContent.Content" xml:space="preserve">
+    <value>Validar e em Adicionar Conta</value>
+  </data>
+  <data name="ValiderContent.Content" xml:space="preserve">
+    <value>Validar</value>
+  </data>
+  <data name="ValiderTerminerContent.Content" xml:space="preserve">
+    <value>Validar e finalizar</value>
+  </data>
+  <data name="VersionText.Text" xml:space="preserve">
+    <value>Lançamento:</value>
+  </data>
+  <data name="Virement" xml:space="preserve">
+    <value>Transferência</value>
+  </data>
+  <data name="VirementCompteText.Text" xml:space="preserve">
+    <value>Conta para a transferência:</value>
+  </data>
+</root>

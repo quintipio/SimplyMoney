@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AucunCompteSecondaire" xml:space="preserve">
+    <value>Aucun compte n'a été détecté sur l'appareil principal. Si vous en avez déjà crée un, patientez, la synchronisation peut prendre du temps. Si vous n'avez pas d'appareil principal, et que vous voulez utiliser celui ci en tant que tel, vous pouvez réinitialiser l'application dans les paramètres.</value>
+  </data>
+  <data name="AucunCompteSelect" xml:space="preserve">
+    <value>Aucun compte de sélectionné</value>
+  </data>
+  <data name="AucunFichier" xml:space="preserve">
+    <value>Aucun fichier en mémoire</value>
+  </data>
+  <data name="AucunMdp" xml:space="preserve">
+    <value>Champ Mot de passe vide</value>
+  </data>
+  <data name="ChampsVide" xml:space="preserve">
+    <value>Certains champs sont vides</value>
+  </data>
+  <data name="CompteDejaPresent" xml:space="preserve">
+    <value>Le nom de ce compte existe déjà.</value>
+  </data>
+  <data name="DateLimieteEcheancier" xml:space="preserve">
+    <value>La date limite doit être supérieur à la date d'éxécution de l'échéancier</value>
+  </data>
+  <data name="DeviseTropLong" xml:space="preserve">
+    <value>Le champ devise ne doit pas contenir plus de 15 caractères.</value>
+  </data>
+  <data name="ErreurRestaurer" xml:space="preserve">
+    <value>Erreur lors de la restauration</value>
+  </data>
+  <data name="ErreurSauvegarde" xml:space="preserve">
+    <value>Erreur lors de la sauvegarde</value>
+  </data>
+  <data name="ListeCompteVide" xml:space="preserve">
+    <value>Au moins un compte est nécéssaire.</value>
+  </data>
+  <data name="NomTropLong" xml:space="preserve">
+    <value>Le champ nom ne doit pas contenir plus de 100 caractères.</value>
+  </data>
+  <data name="PeriodicitePerso" xml:space="preserve">
+    <value>Le nombre de jours doit être supérieur à zéro</value>
+  </data>
+  <data name="RestaurerOK" xml:space="preserve">
+    <value>Restauration effectuée</value>
+  </data>
+  <data name="RoamingMouvementPlein" xml:space="preserve">
+    <value>Impossible de rajouter un mouvement, l'espace de partage a atteint sa capacité maximale. Veuillez synchroniser les mouvement déjà en attente sur l'appareil principal, ou vider l'espace de synchronisation dans les paramètres.</value>
+  </data>
+  <data name="SauvegardeOK" xml:space="preserve">
+    <value>Sauvegarde effectuée</value>
+  </data>
+  <data name="SelectionFichier" xml:space="preserve">
+    <value>Erreur lors de la selection du fichier</value>
+  </data>
+  <data name="SoldeIncorrect" xml:space="preserve">
+    <value>Le champ de la solde initiale est incorrecte.</value>
+  </data>
+  <data name="SupressionCategImpossible" xml:space="preserve">
+    <value>Suprresion de cette catégorie impossible, elle est utilisée par certains mouvement dans les comptes ou par certains échéancier.</value>
+  </data>
+  <data name="SupressionSousCategImpossible" xml:space="preserve">
+    <value>Suprresion de cette sous catégorie impossible, elle est utilisée par certains mouvement dans les comptes ou par certains échéancier.</value>
+  </data>
+</root>
