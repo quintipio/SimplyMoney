@@ -125,6 +125,7 @@
     <Compile Include="Business\CompteBusiness.cs" />
     <Compile Include="Business\EcheancierBusiness.cs" />
     <Compile Include="Business\MouvementBusiness.cs" />
+    <Compile Include="Converter\BoolVisibilityInvertConverter.cs" />
     <Compile Include="Converter\DoubleColorConverter.cs" />
     <Compile Include="Enum\ModeOuvertureGestionCategorieEnum.cs" />
     <Compile Include="Model\Devise.cs" />
@@ -239,7 +240,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="CompteWin10_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Package.StoreAssociation.xml" />
@@ -342,7 +342,7 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

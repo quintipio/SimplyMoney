@@ -73,8 +73,8 @@ namespace CompteWin10.Context
         public static async Task GenerateCategorieMouvement()
         {
             await ComFile.GetSizeRoamingFolder();
-            GenerateCategoriesParentDefaut();
-            GenerateSousCategoriesDefaut();
+            await GenerateCategoriesParentDefaut();
+            await GenerateSousCategoriesDefaut();
             if (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)
             {
                 await AjoutCategorieUserFmBdd();
@@ -95,7 +95,7 @@ namespace CompteWin10.Context
         /// <summary>
         /// Génère une liste de catégories par défaut
         /// </summary>
-        private static void GenerateCategoriesParentDefaut()
+        private static async Task GenerateCategoriesParentDefaut()
         {
             ListeCategoriesMouvement =  new List<Categorie>
             {
@@ -113,14 +113,20 @@ namespace CompteWin10.Context
                 new Categorie(12, ResourceLoader.GetForCurrentView("Categories").GetString("Santé"),false),
                 new Categorie(13, ResourceLoader.GetForCurrentView("Categories").GetString("Soins"),false),
                 new Categorie(14, ResourceLoader.GetForCurrentView("Categories").GetString("Transport"),false),
-            }; 
+            };
         }
 
         /// <summary>
         /// Génère une liste de sous catégories par défaut
         /// </summary>
-        private static void GenerateSousCategoriesDefaut()
+        private static async Task GenerateSousCategoriesDefaut()
         {
+            var categBusiness = new CategorieBusiness();
+            await categBusiness.Initialization;
+
+            var liste = await categBusiness.GetListeSousCategToHide();
+
+
             var sousCateg = new List<SousCategorie>
             {
                 new SousCategorie(1, ResourceLoader.GetForCurrentView("Categories").GetString("Bar"),false, ListeCategoriesMouvement[0]),
@@ -132,6 +138,13 @@ namespace CompteWin10.Context
                  new SousCategorie(7, ResourceLoader.GetForCurrentView("Categories").GetString("Self"),false, ListeCategoriesMouvement[0]),
                  new SousCategorie(8, ResourceLoader.GetForCurrentView("Categories").GetString("Supermarche"),false, ListeCategoriesMouvement[0]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[0].SousCategorieList = new List<SousCategorie>(sousCateg);
             
             sousCateg = new List<SousCategorie>
@@ -141,6 +154,13 @@ namespace CompteWin10.Context
                 new SousCategorie(11, ResourceLoader.GetForCurrentView("Categories").GetString("Veterinaire"), false, ListeCategoriesMouvement[1]),
                 new SousCategorie(12, ResourceLoader.GetForCurrentView("Categories").GetString("Fournitures"), false, ListeCategoriesMouvement[1]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[1].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -151,6 +171,13 @@ namespace CompteWin10.Context
                 new SousCategorie(16, ResourceLoader.GetForCurrentView("Categories").GetString("Sante"), false, ListeCategoriesMouvement[2]),
                 new SousCategorie(17, ResourceLoader.GetForCurrentView("Categories").GetString("Vie"), false, ListeCategoriesMouvement[2]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[2].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -161,6 +188,13 @@ namespace CompteWin10.Context
                  new SousCategorie(21, ResourceLoader.GetForCurrentView("Categories").GetString("Reparation"), false, ListeCategoriesMouvement[3]),
                  new SousCategorie(22, ResourceLoader.GetForCurrentView("Categories").GetString("Stationnement"), false, ListeCategoriesMouvement[3]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[3].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -172,6 +206,13 @@ namespace CompteWin10.Context
                  new SousCategorie(27, ResourceLoader.GetForCurrentView("Categories").GetString("CadeauxEnfants"), false, ListeCategoriesMouvement[4]),
                  new SousCategorie(28, ResourceLoader.GetForCurrentView("Categories").GetString("MedecinEnfants"), false, ListeCategoriesMouvement[4]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[4].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -179,7 +220,14 @@ namespace CompteWin10.Context
                     new SousCategorie(29, ResourceLoader.GetForCurrentView("Categories").GetString("Cours"), false, ListeCategoriesMouvement[5]),
                     new SousCategorie(30, ResourceLoader.GetForCurrentView("Categories").GetString("FraisScola"), false, ListeCategoriesMouvement[5]),
                     new SousCategorie(31, ResourceLoader.GetForCurrentView("Categories").GetString("Livres"), false, ListeCategoriesMouvement[5]),
-              };
+            };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[5].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -188,6 +236,13 @@ namespace CompteWin10.Context
                  new SousCategorie(33, ResourceLoader.GetForCurrentView("Categories").GetString("FraisBancaires"), false, ListeCategoriesMouvement[6]),
                  new SousCategorie(34, ResourceLoader.GetForCurrentView("Categories").GetString("Remboursement"), false, ListeCategoriesMouvement[6]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[6].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -197,6 +252,13 @@ namespace CompteWin10.Context
                 new SousCategorie(37, ResourceLoader.GetForCurrentView("Categories").GetString("TaxFonc"), false, ListeCategoriesMouvement[7]),
                 new SousCategorie(38, ResourceLoader.GetForCurrentView("Categories").GetString("AutrImp"), false, ListeCategoriesMouvement[7]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[7].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -220,6 +282,13 @@ namespace CompteWin10.Context
                 new SousCategorie(55, ResourceLoader.GetForCurrentView("Categories").GetString("TelFix"), false, ListeCategoriesMouvement[8]),
                 new SousCategorie(56, ResourceLoader.GetForCurrentView("Categories").GetString("TelMob"), false, ListeCategoriesMouvement[8]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[8].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -239,6 +308,13 @@ namespace CompteWin10.Context
                  new SousCategorie(69, ResourceLoader.GetForCurrentView("Categories").GetString("Video"), false, ListeCategoriesMouvement[9]),
                  new SousCategorie(70, ResourceLoader.GetForCurrentView("Categories").GetString("Voyage"), false, ListeCategoriesMouvement[9]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[9].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -253,6 +329,13 @@ namespace CompteWin10.Context
                  new SousCategorie(78, ResourceLoader.GetForCurrentView("Categories").GetString("Liquide"), false, ListeCategoriesMouvement[10]),
                  new SousCategorie(79, ResourceLoader.GetForCurrentView("Categories").GetString("Prime"), false, ListeCategoriesMouvement[10]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[10].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -263,6 +346,13 @@ namespace CompteWin10.Context
                  new SousCategorie(83, ResourceLoader.GetForCurrentView("Categories").GetString("Mutuelle"), false, ListeCategoriesMouvement[11]),
                  new SousCategorie(84, ResourceLoader.GetForCurrentView("Categories").GetString("Secu"), false, ListeCategoriesMouvement[11]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[11].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -274,6 +364,13 @@ namespace CompteWin10.Context
                  new SousCategorie(89, ResourceLoader.GetForCurrentView("Categories").GetString("Massage"), false, ListeCategoriesMouvement[12]),
                  new SousCategorie(90, ResourceLoader.GetForCurrentView("Categories").GetString("Esthetique"), false, ListeCategoriesMouvement[12]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[12].SousCategorieList = new List<SousCategorie>(sousCateg);
 
             sousCateg = new List<SousCategorie>
@@ -283,9 +380,14 @@ namespace CompteWin10.Context
                 new SousCategorie(93, ResourceLoader.GetForCurrentView("Categories").GetString("Train"), false, ListeCategoriesMouvement[13]),
                 new SousCategorie(94, ResourceLoader.GetForCurrentView("Categories").GetString("Tram"), false, ListeCategoriesMouvement[13]),
             };
+            foreach (var sousCategory in sousCateg)
+            {
+                if (liste != null && liste.Contains(sousCategory.Id))
+                {
+                    sousCategory.IsHidden = true;
+                }
+            }
             ListeCategoriesMouvement[13].SousCategorieList = new List<SousCategorie>(sousCateg);
-
-
         }
 
         /// <summary>
@@ -350,7 +452,7 @@ namespace CompteWin10.Context
             foreach (var categ in ListeCategoriesMouvement)
             {
                 var groupe = new GroupInfoList<SousCategorie> { Key = categ.Libelle };
-                groupe.AddRange(categ.SousCategorieList);
+                groupe.AddRange(categ.SousCategorieList.Where(x =>x.IsHidden == false).ToList());
                 if (groupe.Count > 0)
                 {
                     res.Add(groupe);

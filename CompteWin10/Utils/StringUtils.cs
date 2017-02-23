@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CompteWin10.Utils
 {
@@ -153,6 +155,18 @@ namespace CompteWin10.Utils
             return retour;
         }
 
+
+        /// <summary>
+        /// Converti un string en liste de int en séparant par des ,
+        /// </summary>
+        /// <param name="data">la donnée</param>
+        /// <returns>la liste d'entier</returns>
+        public static List<int> ConvertStringToList(string data)
+        {
+            var dataString = data?.Split(',').ToList();
+            return dataString?.Select(int.Parse).ToList();
+        }
+        
 
     }
 }

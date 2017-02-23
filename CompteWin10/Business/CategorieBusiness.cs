@@ -6,6 +6,7 @@ using CompteWin10.Abstract;
 using CompteWin10.Context;
 using CompteWin10.Model;
 using CompteWin10.Roaming.Business;
+using CompteWin10.Utils;
 
 namespace CompteWin10.Business
 {
@@ -320,6 +321,36 @@ namespace CompteWin10.Business
             sousCategorie.IsSousCategPerso = true;
             await Bdd.AjouterDonnee(sousCategorie);
             await RoamingCategorieBusiness.AjouterSousCategorie(sousCategorie);
+        }
+        
+        /// <summary>
+        /// Retourne la liste des sous catégories à masquer
+        /// </summary>
+        /// <returns>une liste d'identifiants</returns>
+        public async Task<List<int>> GetListeSousCategToHide()
+        {
+            var data = await Bdd.Connection.Table<Application>().Where(x => x.Id == 1).FirstOrDefaultAsync();
+            if (data != null)
+            {
+                var listeId = StringUtils.ConvertStringToList(data.ListeSousCategHidden);
+                if (listeId != null)
+                {
+                    return listeId;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Change la liste des sous catégories masquées
+        /// </summary>
+        /// <param name="listeId">la nouvelle liste des sous catégories</param>
+        /// <returns></returns>
+        public async Task ChangeVisibleSousCateg(string listeId)
+        {
+            var data = await Bdd.Connection.Table<Application>().Where(x => x.Id == 1).FirstOrDefaultAsync();
+            data.ListeSousCategHidden = listeId;
+            await Bdd.UpdateDonnee(data);
         }
     }
 }

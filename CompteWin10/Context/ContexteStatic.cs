@@ -15,17 +15,17 @@ namespace CompteWin10.Context
         /// <summary>
         /// adresse de support
         /// </summary>
-        public const string Support = "xxxx@xxxx.xx";
+        public const string Support = "qdelfour@gmail.com";
 
         /// <summary>
         /// version de l'application
         /// </summary>
-        public const string Version = "1.1.3.3";
+        public const string Version = "1.2.0.0";
 
         /// <summary>
         /// nom du développeur
         /// </summary>
-        public const string Developpeur = "XXXXXXX";
+        public const string Developpeur = "Quentin Delfour (@QuentinDelfour)";
 
         /// <summary>
         /// Nom du fichier de la base de donnée
@@ -35,7 +35,7 @@ namespace CompteWin10.Context
         /// <summary>
         /// Clé de chiffrement pour les dossiers en roaming
         /// </summary>
-        public const string CleChiffrement = "Des caractères aléatoires pour faire une clé de chiffrement";
+        public const string CleChiffrement = "";
 
         /// <summary>
         /// Fichier des données de compte et de banque en roaming

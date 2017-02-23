@@ -37,7 +37,8 @@ namespace CompteWin10.View
             TitreGrid.Background = App.AppShell.GetCouleur();
             AddMouvementButton.Visibility = Visibility.Visible;
             GestionMouvementGrid.Visibility = Visibility.Collapsed;
-            
+            DateSoldeDatePicker.MaxDate = new DateTimeOffset(DateUtils.GetMaintenant());
+
             //Création du viewModel
             ViewModel = new MouvementViewModel(e.Parameter as Compte);
             await ViewModel.Initialization;
@@ -207,5 +208,13 @@ namespace CompteWin10.View
             }
         }
 
+        private async void DateSoldeDatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+            if (_isLoad)
+            {
+                await ViewModel.UpdateDateSoldeCompte();
+                ScrollToBottom();
+            }
+        }
     }
 }

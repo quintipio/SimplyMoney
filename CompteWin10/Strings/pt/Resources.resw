@@ -304,7 +304,11 @@
     <value>Não</value>
   </data>
   <data name="NouveauteesContenu.Text" xml:space="preserve">
-    <value>v1.1.3 :
+    <value>v 1.2:
+-Adicionado uma opção para ocultar as categorias inalteráveis
+-Adicionado uma opção para mostrar uma conta em uma data desejada.
+
+v1.1.3 :
 -Corrigido um bug no registro de contas.
 -Em ordem alfabética categorias e subcategorias.
 -Exposição da soma de todas as contas para os bancos.
@@ -491,5 +495,8 @@ Se você tiver alguma dúvida sobre a política de privacidade, você pode envia
   </data>
   <data name="VirementCompteText.Text" xml:space="preserve">
     <value>Conta para a transferência:</value>
+  </data>
+  <data name="soldeCompteDateText.Text" xml:space="preserve">
+    <value>Verificar o saldo da conta na data da :</value>
   </data>
 </root>

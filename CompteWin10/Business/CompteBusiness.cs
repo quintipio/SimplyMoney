@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CompteWin10.Abstract;
@@ -18,10 +19,11 @@ namespace CompteWin10.Business
         /// </summary>
         /// <param name="idCompte">l'id du comtpe sur lequel s'effectue la recherche</param>
         /// <param name="limit">le nombre d'occurence par pages</param>
+        /// <param name="dateLimite">le nombre d'occurence par pages</param>
         /// <returns>le nombre de page</returns>
-        public async Task<int> GetNombrePageCompte(int idCompte, int limit)
+        public async Task<int> GetNombrePageCompte(int idCompte, int limit,DateTime dateLimite)
         {
-            var nboccurences = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte).CountAsync();
+            var nboccurences = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte && x.Date<=dateLimite).CountAsync();
             var res =  nboccurences / limit;
             if(nboccurences%limit >  0)
             {
@@ -39,7 +41,48 @@ namespace CompteWin10.Business
         {
             var compte = await Bdd.Connection.Table<Compte>().Where(x => x.Id == idCompte).FirstOrDefaultAsync();
             compte.DeviseToAffiche = DeviseUtils.GetDiminutifDevise(compte.IdDevise);
+            compte.Solde = Math.Round(compte.Solde, 2);
             return compte;
+        }
+
+        /// <summary>
+        /// Retourne le solde d'un compte à une date voulue
+        /// </summary>
+        /// <param name="date">la date du solde de compte choisi</param>
+        /// <param name="idCompte">le compte dont on souhaite la solde</param>
+        /// <returns>le solde</returns>
+        public async Task<double> GetSoldeCompteDate(DateTime date,int idCompte)
+        {
+           var solde = await GetOneSolde(idCompte);
+                var listeMouvement = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte && x.Date >= date && x.Date <= DateTime.Today).ToListAsync();
+                foreach (var mouv in listeMouvement)
+                {
+                    if (mouv.Credit > 0)
+                    {
+                        solde -= mouv.Credit;
+                    }
+
+                    if (mouv.Debit > 0)
+                    {
+                        solde += mouv.Debit;
+                    }
+                }
+            solde = Math.Round(solde, 2);
+            return solde;
+        }
+
+        /// <summary>
+        /// Retourne le sodle initial d'un compte en base
+        /// </summary>
+        /// <returns>le solde d'un compte</returns>
+        public async Task<double> GetOneSolde(int idCompte)
+        {
+            var compte = await Bdd.Connection.Table<Compte>().Where(x => x.Id == idCompte).FirstOrDefaultAsync();
+            if (compte != null)
+            {
+                return compte.Solde;
+            }
+            return 0;
         }
 
         /// <summary>
@@ -195,7 +238,7 @@ namespace CompteWin10.Business
         {
             return await Bdd.Connection.Table<SoldeInitial>().ToListAsync();
         }
-
+        
         /// <summary>
         /// Ajoute un compte provenant des données de restauration
         /// </summary>

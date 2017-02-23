@@ -152,11 +152,12 @@ namespace CompteWin10.Business
         /// <param name="idCompte">l'id du compte dont on cherche les mouvements</param>
         /// <param name="page">info pour la limit</param>
         /// <param name="nbOccurences">info pour le nombre d'occurences à retourner</param>
+        /// <param name="dateLimiteSoldeCompte">la date limite de récupération des mouvements</param>
         /// <returns>la liste de mouvements</returns>
-        public async Task<List<Mouvement>> GetListeMouvement(int idCompte,int page, int nbOccurences)
+        public async Task<List<Mouvement>> GetListeMouvement(int idCompte,int page, int nbOccurences,DateTime dateLimiteSoldeCompte)
         {
             var devise =DeviseUtils.GetDiminutifDevise((await Bdd.Connection.Table<Compte>().Where(x => x.Id == idCompte).FirstOrDefaultAsync()).IdDevise);
-            var retour = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte).OrderBy(x => x.Date).Skip((page-1)*nbOccurences).Take(nbOccurences).ToListAsync();
+            var retour = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte && x.Date <= dateLimiteSoldeCompte).OrderBy(x => x.Date).Skip((page-1)*nbOccurences).Take(nbOccurences).ToListAsync();
 
             foreach (var mouv in retour)
             {

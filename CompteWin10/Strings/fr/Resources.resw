@@ -193,7 +193,11 @@
     <value>Développeur : </value>
   </data>
   <data name="NouveauteesContenu.Text" xml:space="preserve">
-    <value>v1.1.3:
+    <value>v 1.2 :
+    - Ajout d'une option pour masquer les catégories non modifiables
+    - Ajout d'une option pour afficher un compte à une date voulue.
+
+v1.1.3:
     - Correction d'un bug sur l'enregistrement en roaming des comptes.
     - Tri catégories et sous catégories par ordre alphabétique.
     - Affichage de la somme de tout les comptes pour les banques.
@@ -481,5 +485,8 @@ Si vous avez des questions sur la politique de confidentialité, vous pouvez env
   </data>
   <data name="textPT" xml:space="preserve">
     <value>Portugais</value>
+  </data>
+  <data name="soldeCompteDateText.Text" xml:space="preserve">
+    <value>Consulter le solde du compte à la date du :</value>
   </data>
 </root>

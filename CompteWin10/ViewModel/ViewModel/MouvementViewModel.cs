@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,6 +54,8 @@ namespace CompteWin10.ViewModel
             await _banqueBusiness.Initialization;
 
             //PARTIE LISTE MOUVEMENT
+            IsDateSoldeCompteVisible = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal);
+            DateSoldeCompte = DateUtils.GetMaintenant();
             await RecompterPage();
 
             //PARTIE GESTION MOUVEMENT
@@ -168,17 +171,54 @@ namespace CompteWin10.ViewModel
             ListeCompteVirement.Source = tmp;
         }
 
+
+        /// <summary>
+        /// Et à jour le solde du compte affiché
+        /// </summary>
+        /// <returns></returns>
+        public async Task UpdateSoldeCompte()
+        {
+            if (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)
+            {
+                Compte = await _compteBusiness.GetCompte(Compte.Id);
+            }
+            else
+            {
+                Compte = await RoamingCompteBusiness.GetCompte(Compte.Id);
+            }
+        }
+
         #endregion
 
 
         #region ListeMouvement
 
         /// <summary>
+        /// Met à jour le solde du compte en fonction de la date entrée
+        /// </summary>
+        /// <returns></returns>
+        public async Task UpdateDateSoldeCompte()
+        {
+            await RecompterPage();
+            await RecalculerSoldeCompte();
+        }
+
+        /// <summary>
+        /// Recalcul le solde d'un compte à partir d'un date précise
+        /// </summary>
+        /// <returns></returns>
+        public async Task RecalculerSoldeCompte()
+        {
+            Compte.Solde = await _compteBusiness.GetSoldeCompteDate(DateSoldeCompte, Compte.Id);
+            Compte = new Compte(Compte);
+        }
+
+        /// <summary>
         /// Compte le nombre de pages possible pour ce compte et ouvre la dernière
         /// </summary>
         private async Task RecompterPage()
         {
-            NombrePages = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)? await _compteBusiness.GetNombrePageCompte(Compte.Id, NbOccurencesMax):1;
+            NombrePages = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)? await _compteBusiness.GetNombrePageCompte(Compte.Id, NbOccurencesMax,DateSoldeCompte):1;
             await ChangePage(NombrePages, false, false);
         }
 
@@ -217,7 +257,7 @@ namespace CompteWin10.ViewModel
 
             //Chargement de la liste des mouvements
             ListeMouvements = new ObservableCollection<Mouvement>((App.ModeApp == AppareilEnum.ModeAppareilPrincipal) ?
-                await _mouvementBusiness.GetListeMouvement(Compte.Id, PageEnCours, NbOccurencesMax) : await RoamingMouvementBusiness.GetMouvementsRoaming(Compte.Id));
+                await _mouvementBusiness.GetListeMouvement(Compte.Id, PageEnCours, NbOccurencesMax,DateSoldeCompte) : await RoamingMouvementBusiness.GetMouvementsRoaming(Compte.Id));
 
         }
 
@@ -360,22 +400,6 @@ namespace CompteWin10.ViewModel
             await RecompterPage();
             await UpdateSoldeCompte();
             AnnulerMouvement();
-        }
-
-        /// <summary>
-        /// Et à jour le solde du compte affiché
-        /// </summary>
-        /// <returns></returns>
-        public async Task UpdateSoldeCompte()
-        {
-            if (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)
-            {
-                Compte = await _compteBusiness.GetCompte(Compte.Id);
-            }
-            else
-            {
-                Compte = await RoamingCompteBusiness.GetCompte(Compte.Id);
-            }
         }
 
         /// <summary>

@@ -9,6 +9,7 @@
     mc:Ignorable="d" KeyUp="Page_KeyUp">
     <Page.Resources>
         <converter:BoolVisibilityConverter x:Key="ConverterBoolVisible"/>
+        <converter:BoolVisibilityInvertConverter x:Key="ConverterBoolVisibleInvert"/>
     </Page.Resources>
     
     
@@ -83,12 +84,17 @@
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="Auto"/>
                                                         <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
                                                     </Grid.ColumnDefinitions>
 
                                                     <TextBlock Text="{Binding Libelle}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                                     <AppBarButton Icon="Edit" Grid.Column="1" IsCompact="True" Tag="{Binding}" Click="EditSousCategorie_Clic" Visibility="{Binding IsVisibleForModif,  Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
                                                     <AppBarButton Icon="Clear" Grid.Column="2" IsCompact="True" Tag="{Binding}" Click="DeleteSousCategorie_Clic" Visibility="{Binding IsVisibleForModif, Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
-                                                </Grid>
+                                                    <Grid Grid.Column="3" Visibility="{Binding IsVisibleForModif, Mode=OneWay, Converter={StaticResource ConverterBoolVisibleInvert}}">
+                                                        <AppBarButton Icon="UnFavorite" IsCompact="True" Tag="{Binding}" Click="HideSousCategorie_Clic" Visibility="{Binding IsHidden, Mode=OneWay, Converter={StaticResource ConverterBoolVisibleInvert}}"/>
+                                                        <AppBarButton Icon="Favorite" IsCompact="True" Tag="{Binding}" Click="UnHideSousCategorie_Clic" Visibility="{Binding IsHidden, Mode=OneWay, Converter={StaticResource ConverterBoolVisible}}"/>
+                                                    </Grid>
+                                                   </Grid>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
                                     </ListView>

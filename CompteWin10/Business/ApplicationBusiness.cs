@@ -281,6 +281,11 @@ namespace CompteWin10.Business
                     }
                 }
 
+                if (StringUtils.CheckVersion(res.Version, "1.2.0"))
+                {
+                    await Bdd.Connection.CreateTableAsync<Application>();
+                }
+
                 res.Version = ContexteStatic.Version;
             }
             await Bdd.UpdateDonnee(res);

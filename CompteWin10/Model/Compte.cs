@@ -50,6 +50,21 @@ namespace CompteWin10.Model
         [XmlIgnore]
         public string DeviseToAffiche { get; set; }
 
+        public Compte()
+        {
+            
+        }
+
+        public Compte(Compte compte)
+        {
+            Id = compte.Id;
+            Nom = compte.Nom;
+            IdBanque = compte.IdBanque;
+            Solde = compte.Solde;
+            IdDevise = compte.IdDevise;
+            DeviseToAffiche = compte.DeviseToAffiche;
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
