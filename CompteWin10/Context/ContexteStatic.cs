@@ -15,17 +15,29 @@ namespace CompteWin10.Context
         /// <summary>
         /// adresse de support
         /// </summary>
+<<<<<<< HEAD
         public const string Support = "";
+=======
+        public const string Support = "qdelfour@gmail.com";
+>>>>>>> origin/master
 
         /// <summary>
         /// version de l'application
         /// </summary>
+<<<<<<< HEAD
         public const string Version = "1.2.1";
+=======
+        public const string Version = "1.2.0.0";
+>>>>>>> origin/master
 
         /// <summary>
         /// nom du développeur
         /// </summary>
+<<<<<<< HEAD
         public const string Developpeur = "";
+=======
+        public const string Developpeur = "Quentin Delfour (@QuentinDelfour)";
+>>>>>>> origin/master
 
         /// <summary>
         /// Nom du fichier de la base de donnée

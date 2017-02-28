@@ -153,6 +153,7 @@ namespace CompteWin10.Business
         /// <param name="page">info pour la limit</param>
         /// <param name="nbOccurences">info pour le nombre d'occurences à retourner</param>
         /// <param name="dateLimiteSoldeCompte">la date limite de récupération des mouvements</param>
+<<<<<<< HEAD
         /// <param name="listeRajout">Une liste de mouvements à rajouter à la liste</param>
         /// <returns>la liste de mouvements</returns>
         public async Task<List<Mouvement>> GetListeMouvement(int idCompte,int page, int nbOccurences,DateTime dateLimiteSoldeCompte,List<Mouvement> listeRajout)
@@ -169,6 +170,13 @@ namespace CompteWin10.Business
                     .Skip((page - 1)*nbOccurences)
                     .Take(nbOccurences)
                     .ToList();
+=======
+        /// <returns>la liste de mouvements</returns>
+        public async Task<List<Mouvement>> GetListeMouvement(int idCompte,int page, int nbOccurences,DateTime dateLimiteSoldeCompte)
+        {
+            var devise =DeviseUtils.GetDiminutifDevise((await Bdd.Connection.Table<Compte>().Where(x => x.Id == idCompte).FirstOrDefaultAsync()).IdDevise);
+            var retour = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte && x.Date <= dateLimiteSoldeCompte).OrderBy(x => x.Date).Skip((page-1)*nbOccurences).Take(nbOccurences).ToListAsync();
+>>>>>>> origin/master
 
             foreach (var mouv in retour)
             {
