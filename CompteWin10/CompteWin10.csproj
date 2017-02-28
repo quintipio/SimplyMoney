@@ -4,6 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{F0349EC8-DF92-4EE0-9D1A-C7A82682C653}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CompteWin10</RootNamespace>
@@ -15,10 +16,13 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>CompteWin10_StoreKey.pfx</PackageCertificateKeyFile>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <PackageCertificateThumbprint>4465330965390B2AFA14806076AA354BAAACDD38</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
@@ -125,6 +129,7 @@
     <Compile Include="Business\CompteBusiness.cs" />
     <Compile Include="Business\EcheancierBusiness.cs" />
     <Compile Include="Business\MouvementBusiness.cs" />
+    <Compile Include="Converter\BoolVisibilityInvertConverter.cs" />
     <Compile Include="Converter\DoubleColorConverter.cs" />
     <Compile Include="Enum\ModeOuvertureGestionCategorieEnum.cs" />
     <Compile Include="Model\Devise.cs" />
@@ -239,7 +244,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="CompteWin10_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Package.StoreAssociation.xml" />

@@ -37,7 +37,7 @@ namespace CompteWin10.View
             TitreGrid.Background = App.AppShell.GetCouleur();
             AddMouvementButton.Visibility = Visibility.Visible;
             GestionMouvementGrid.Visibility = Visibility.Collapsed;
-            
+
             //Création du viewModel
             ViewModel = new MouvementViewModel(e.Parameter as Compte);
             await ViewModel.Initialization;
@@ -60,7 +60,7 @@ namespace CompteWin10.View
             _isLoad = false;
             PreviousButton.IsEnabled = false;
             NextButton.IsEnabled = false;
-            await ViewModel.ChangePage(null, true, false);
+            await ViewModel.ChangePage(null, true, false,ViewModel.ListeRajoutMouvement);
             PreviousButton.IsEnabled = true;
             NextButton.IsEnabled = true;
             _isLoad = true;
@@ -71,7 +71,7 @@ namespace CompteWin10.View
             _isLoad = false;
             PreviousButton.IsEnabled = false;
             NextButton.IsEnabled = false;
-            await ViewModel.ChangePage(null, false, true);
+            await ViewModel.ChangePage(null, false, true, ViewModel.ListeRajoutMouvement);
             PreviousButton.IsEnabled = true;
             NextButton.IsEnabled = true;
             _isLoad = true;
@@ -207,5 +207,14 @@ namespace CompteWin10.View
             }
         }
 
+        private async void DateSoldeDatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        {
+                if (_isLoad)
+                {
+                    await ViewModel.UpdateDateSoldeCompte();
+                    ScrollToBottom();
+                }
+           
+        }
     }
 }

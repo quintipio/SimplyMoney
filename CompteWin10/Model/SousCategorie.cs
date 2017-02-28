@@ -50,6 +50,13 @@ namespace CompteWin10.Model
         public bool IsVisibleForModif { get; set; }
 
         /// <summary>
+        /// Indique si l'objet est visible ou non
+        /// </summary>
+        [Ignore]
+        [XmlIgnore]
+        public bool IsHidden { get; set; }
+
+        /// <summary>
         /// Categorie mère de la sous catégorie
         /// </summary>
         [Ignore]

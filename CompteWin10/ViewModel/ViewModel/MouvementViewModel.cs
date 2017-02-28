@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,8 +25,10 @@ namespace CompteWin10.ViewModel
         private MouvementBusiness _mouvementBusiness;
         private CompteBusiness _compteBusiness;
         private BanqueBusiness _banqueBusiness;
+        private EcheancierBusiness _echeancierBusiness;
 
         private List<Banque> _listeCompte;
+        public List<Mouvement> ListeRajoutMouvement;
 
         private const int NbOccurencesMax = 100;
 
@@ -38,10 +41,11 @@ namespace CompteWin10.ViewModel
         {
             Compte = compte;
             Initialization = InitializeAsync();
+            ListeRajoutMouvement = new List<Mouvement>();
         }
 
 
-        public sealed async override Task InitializeAsync()
+        public sealed override async Task InitializeAsync()
         {
             _mouvementBusiness = new MouvementBusiness();
             await _mouvementBusiness.Initialization;
@@ -52,8 +56,13 @@ namespace CompteWin10.ViewModel
             _banqueBusiness = new BanqueBusiness();
             await _banqueBusiness.Initialization;
 
+            _echeancierBusiness = new EcheancierBusiness();
+            await _echeancierBusiness.Initialization;
+
             //PARTIE LISTE MOUVEMENT
-            await RecompterPage();
+            IsDateSoldeCompteVisible = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal);
+            DateSoldeCompte = DateUtils.GetMaintenant();
+            await RecompterPage(null);
 
             //PARTIE GESTION MOUVEMENT
             //préparation des données
@@ -168,18 +177,118 @@ namespace CompteWin10.ViewModel
             ListeCompteVirement.Source = tmp;
         }
 
+
+        /// <summary>
+        /// Et à jour le solde du compte affiché
+        /// </summary>
+        /// <returns></returns>
+        public async Task UpdateSoldeCompte()
+        {
+            if (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)
+            {
+                Compte = await _compteBusiness.GetCompte(Compte.Id);
+            }
+            else
+            {
+                Compte = await RoamingCompteBusiness.GetCompte(Compte.Id);
+            }
+        }
+
         #endregion
 
 
         #region ListeMouvement
 
         /// <summary>
+        /// Met à jour le solde du compte en fonction de la date entrée
+        /// </summary>
+        /// <returns></returns>
+        public async Task UpdateDateSoldeCompte()
+        {
+            //si on fait des prévisions dans le futur on doit prendre en compte les échéanciers
+            if (DateSoldeCompte > DateTime.Today)
+            {
+                double rajouterAuSolde = 0;
+                var listeEcheancier = await _echeancierBusiness.GetEcheancier();
+                ListeRajoutMouvement = new List<Mouvement>();
+                var dateFictive = DateTime.Today;
+                do
+                {
+                    if (listeEcheancier.Count(x => x.Date == dateFictive) > 0)
+                    {
+                        foreach (var echeancier in listeEcheancier.Where(x => x.Date == dateFictive))
+                        {
+                            if ((echeancier.IsDateLimite && echeancier.DateLimite < dateFictive.AddDays(1)) ||
+                                !echeancier.IsDateLimite)
+                            {
+                                var mouv = new Mouvement
+                                {
+                                    Date = new DateTime(dateFictive.Year, dateFictive.Month, dateFictive.Day, 0, 0, 0),
+                                    Credit = echeancier.Credit,
+                                    Debit = echeancier.Debit,
+                                    Commentaire = echeancier.Commentaire,
+                                    IdCompte = echeancier.IdCompte,
+                                    IdType = echeancier.IdType,
+                                    IsPasse = false,
+                                    IdMouvementVirement = 0,
+                                    IsTypePerso = echeancier.IsTypePerso,
+                                    Numero = 0,
+                                    ModeMouvement = echeancier.ModeMouvement
+                                };
+                                ListeRajoutMouvement.Add(mouv);
+                                if (mouv.Debit > 0)
+                                {
+                                    rajouterAuSolde -= mouv.Debit;
+                                }
+                                if (mouv.Credit > 0)
+                                {
+                                    rajouterAuSolde += mouv.Credit;
+                                }
+
+                                echeancier.Date =
+                                    EcheancierBusiness.GetNbJoursPeriodicite(
+                                        (PeriodiciteEnum) echeancier.IdPeriodicite, echeancier.Date, echeancier.NbJours);
+                            }
+                        }
+                    }
+
+                    dateFictive = dateFictive.AddDays(1);
+                } while (dateFictive <= DateSoldeCompte);
+
+                await RecompterPage(ListeRajoutMouvement);
+                await RecalculerSoldeCompte(rajouterAuSolde);
+            }
+            else
+            {
+                ListeRajoutMouvement.Clear();
+                await RecompterPage(null);
+                await RecalculerSoldeCompte(null);
+            }
+        }
+
+        /// <summary>
+        /// Recalcul le solde d'un compte à partir d'un date précise
+        /// </summary>
+        /// <param name="rajout">le solde à rajouter</param>
+        /// <returns></returns>
+        public async Task RecalculerSoldeCompte(double? rajout)
+        {
+            Compte.Solde = await _compteBusiness.GetSoldeCompteDate(DateSoldeCompte, Compte.Id);
+            if (rajout != null)
+            {
+                Compte.Solde += rajout.Value;
+            }
+            Compte = new Compte(Compte);
+        }
+
+        /// <summary>
         /// Compte le nombre de pages possible pour ce compte et ouvre la dernière
         /// </summary>
-        private async Task RecompterPage()
+        /// <param name="listeMouvementRajout">une liste de mouvement à rajouter en plus de ceux en base</param>
+        private async Task RecompterPage(List<Mouvement> listeMouvementRajout)
         {
-            NombrePages = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)? await _compteBusiness.GetNombrePageCompte(Compte.Id, NbOccurencesMax):1;
-            await ChangePage(NombrePages, false, false);
+            NombrePages = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)? await _compteBusiness.GetNombrePageCompte(Compte.Id, NbOccurencesMax,DateSoldeCompte,(listeMouvementRajout != null)? listeMouvementRajout.Count():0):1;
+            await ChangePage(NombrePages, false, false, listeMouvementRajout);
         }
 
         /// <summary>
@@ -188,7 +297,8 @@ namespace CompteWin10.ViewModel
         /// <param name="page">indique la page sur laquelle naviguer (null si aucune)</param>
         /// <param name="goToPrevious">true pour aller à la page précédente</param>
         /// <param name="goToNext">true pour aller à la page suivante</param>
-        public async Task ChangePage(int? page,bool goToPrevious, bool goToNext)
+        /// <param name="listeRajout">une liste de mouvement à rajouter en plus des mouvements en base</param>
+        public async Task ChangePage(int? page,bool goToPrevious, bool goToNext,List<Mouvement> listeRajout)
         {
             //Changement de la page page en cours
             if (page != null)
@@ -217,7 +327,7 @@ namespace CompteWin10.ViewModel
 
             //Chargement de la liste des mouvements
             ListeMouvements = new ObservableCollection<Mouvement>((App.ModeApp == AppareilEnum.ModeAppareilPrincipal) ?
-                await _mouvementBusiness.GetListeMouvement(Compte.Id, PageEnCours, NbOccurencesMax) : await RoamingMouvementBusiness.GetMouvementsRoaming(Compte.Id));
+                await _mouvementBusiness.GetListeMouvement(Compte.Id, PageEnCours, NbOccurencesMax,DateSoldeCompte,listeRajout) : await RoamingMouvementBusiness.GetMouvementsRoaming(Compte.Id));
 
         }
 
@@ -357,25 +467,9 @@ namespace CompteWin10.ViewModel
                     }
                 }
             }
-            await RecompterPage();
+            await RecompterPage(null);
             await UpdateSoldeCompte();
             AnnulerMouvement();
-        }
-
-        /// <summary>
-        /// Et à jour le solde du compte affiché
-        /// </summary>
-        /// <returns></returns>
-        public async Task UpdateSoldeCompte()
-        {
-            if (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)
-            {
-                Compte = await _compteBusiness.GetCompte(Compte.Id);
-            }
-            else
-            {
-                Compte = await RoamingCompteBusiness.GetCompte(Compte.Id);
-            }
         }
 
         /// <summary>
@@ -394,7 +488,7 @@ namespace CompteWin10.ViewModel
                 {
                     await RoamingMouvementBusiness.SupprimerMouvementRoaming(IdMouvementSelect.Value);
                 }
-                await RecompterPage();
+                await RecompterPage(null);
                 await UpdateSoldeCompte();
                 AnnulerMouvement();
             }

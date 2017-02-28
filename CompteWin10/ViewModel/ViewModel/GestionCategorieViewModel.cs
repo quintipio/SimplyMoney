@@ -162,5 +162,50 @@ namespace CompteWin10.ViewModel
         {
             return await _categorieBusiness.CheckSupressionSousCategorie(SelectedSousCategorie.Id);
         }
+
+        /// <summary>
+        /// Masque ou démasque une sous catégorie
+        /// </summary>
+        /// <param name="sousCateg">la sous catégorie dont on souhaite changer l'état</param>
+        /// <param name="toHide">true si elle doit être masqué</param>
+        /// <returns></returns>
+        public async Task HideUnhideSousCateg(SousCategorie sousCateg, bool toHide)
+        {
+            //met à jour la sous catégorie
+            foreach (var category in ContexteAppli.ListeCategoriesMouvement)
+            {
+                foreach (var sousCategory in category.SousCategorieList)
+                {
+                    if (sousCategory.Id == sousCateg.Id)
+                    {
+                        sousCategory.IsHidden = toHide;
+                    }
+                }
+            }
+            
+            //recupère tout les id à masquer
+            var newListeId = "";
+            foreach (var category in ContexteAppli.ListeCategoriesMouvement)
+            {
+                foreach (var sousCategory in category.SousCategorieList)
+                {
+                    if (sousCategory.IsHidden)
+                    {
+                        newListeId += sousCategory.Id + ",";
+                    }
+                }
+            }
+
+            if (newListeId.EndsWith(","))
+            {
+                newListeId = newListeId.Remove(newListeId.Length - 1, 1);
+            }
+
+            //met à jour la liste en base
+            await _categorieBusiness.ChangeVisibleSousCateg(newListeId);
+
+            //met à jour l'affichage
+            GenererListeCategories();
+        }
     }
 }

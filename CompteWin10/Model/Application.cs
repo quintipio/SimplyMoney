@@ -66,5 +66,13 @@ namespace CompteWin10.Model
         [Column("issynchroecheancieractive")]
         [XmlElement("issynchroecheancieractive")]
         public bool IsSynchroEcheancierActive { get; set; }
+
+
+        /// <summary>
+        /// Liste des sous catégories cachées
+        /// </summary>
+        [Column("listeSousCategHidden")]
+        [XmlElement("listeSousCategHidden")]
+        public string ListeSousCategHidden { get; set; }
     }
 }

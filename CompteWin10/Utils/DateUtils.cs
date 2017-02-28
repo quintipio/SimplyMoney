@@ -76,5 +76,15 @@ namespace CompteWin10.Utils
             return Convert.ToDateTime(date);
         }
 
+        /// <summary>
+        /// Arrondir une date
+        /// </summary>
+        /// <param name="date">la date à modifier</param>
+        /// <returns>la date</returns>
+        public static DateTime ArrondirJour(DateTime date)
+        {
+            return new DateTime(date.Year,date.Month,date.Day,23,59,59);
+        }
+
     }
 }

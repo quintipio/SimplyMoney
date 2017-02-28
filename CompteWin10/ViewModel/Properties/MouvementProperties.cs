@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Windows.Security.Cryptography.Core;
 using Windows.UI.Xaml.Data;
 using CompteWin10.Model;
+using CompteWin10.Utils;
 
 namespace CompteWin10.ViewModel
 {
@@ -12,7 +12,7 @@ namespace CompteWin10.ViewModel
     public partial class MouvementViewModel
     {
         #region Liste des mouvements
-
+        
         private int NombrePages { get; set; }
 
         private int PageEnCours { get; set; }
@@ -68,6 +68,32 @@ namespace CompteWin10.ViewModel
             set
             {
                 _listeMouvements = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private DateTime _dateSoldeCompte { get; set; }
+
+        public DateTime DateSoldeCompte
+        {
+            get { return _dateSoldeCompte; }
+            set
+            {
+
+                _dateSoldeCompte = DateUtils.ArrondirJour(value);
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isDateSoldeCompteVisible { get; set; }
+
+        public bool IsDateSoldeCompteVisible
+        {
+            get { return _isDateSoldeCompteVisible; }
+            set
+            {
+                _isDateSoldeCompteVisible = value;
                 OnPropertyChanged();
             }
         }

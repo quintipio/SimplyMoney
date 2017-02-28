@@ -192,5 +192,15 @@ namespace CompteWin10.View
                 await MessageBox.ShowAsync(retour);
             }
         }
+
+        private async void HideSousCategorie_Clic(object sender, RoutedEventArgs e)
+        {
+            await ViewModel.HideUnhideSousCateg(((AppBarButton) sender).Tag as SousCategorie, true);
+        }
+
+        private async void UnHideSousCategorie_Clic(object sender, RoutedEventArgs e)
+        {
+            await ViewModel.HideUnhideSousCateg(((AppBarButton)sender).Tag as SousCategorie, false);
+        }
     }
 }

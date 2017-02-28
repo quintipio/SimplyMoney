@@ -169,7 +169,7 @@ namespace CompteWin10.Business
         /// <param name="dateDernierMouvement">la date de dernière éxécution de l'échéancier</param>
         /// <param name="nbJours">le nombre de jours (null si aucun)</param>
         /// <returns></returns>
-        private static DateTime GetNbJoursPeriodicite(PeriodiciteEnum periodicite,DateTime dateDernierMouvement,int nbJours)
+        public static DateTime GetNbJoursPeriodicite(PeriodiciteEnum periodicite,DateTime dateDernierMouvement,int nbJours)
         {
             switch (periodicite)
             {

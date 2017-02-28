@@ -301,7 +301,11 @@
     <value>No</value>
   </data>
   <data name="NouveauteesContenu.Text" xml:space="preserve">
-    <value>v1.1.3 :
+    <value>v 1.2:
+-Añadida una opción para ocultar las categorías inmutables
+-Añadida una opción para mostrar una cuenta en una fecha deseada.
+
+v1.1.3 :
 -Corregido un error en el registro de cuentas.
 -Ordenadas por orden alfabético a categorías y subcategorías.
 -Visualización de la suma de todas las cuentas para los bancos.
@@ -481,5 +485,8 @@ Si usted tiene alguna pregunta acerca de la política de privacidad, puede envia
   </data>
   <data name="textPT" xml:space="preserve">
     <value>Portugués</value>
+  </data>
+  <data name="soldeCompteDateText.Text" xml:space="preserve">
+    <value>Compruebe el saldo de la cuenta en la fecha de la :</value>
   </data>
 </root>
