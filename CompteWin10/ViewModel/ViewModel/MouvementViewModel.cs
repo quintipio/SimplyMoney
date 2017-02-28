@@ -62,12 +62,8 @@ namespace CompteWin10.ViewModel
             //PARTIE LISTE MOUVEMENT
             IsDateSoldeCompteVisible = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal);
             DateSoldeCompte = DateUtils.GetMaintenant();
-<<<<<<< HEAD
             await RecompterPage(null);
-=======
-            await RecompterPage();
->>>>>>> origin/master
-
+            
             //PARTIE GESTION MOUVEMENT
             //préparation des données
             ListeCategorie = new CollectionViewSource { IsSourceGrouped = true };
@@ -209,7 +205,6 @@ namespace CompteWin10.ViewModel
         /// <returns></returns>
         public async Task UpdateDateSoldeCompte()
         {
-<<<<<<< HEAD
             //si on fait des prévisions dans le futur on doit prendre en compte les échéanciers
             if (DateSoldeCompte > DateTime.Today)
             {
@@ -269,16 +264,11 @@ namespace CompteWin10.ViewModel
                 await RecompterPage(null);
                 await RecalculerSoldeCompte(null);
             }
-=======
-            await RecompterPage();
-            await RecalculerSoldeCompte();
->>>>>>> origin/master
         }
 
         /// <summary>
         /// Recalcul le solde d'un compte à partir d'un date précise
         /// </summary>
-<<<<<<< HEAD
         /// <param name="rajout">le solde à rajouter</param>
         /// <returns></returns>
         public async Task RecalculerSoldeCompte(double? rajout)
@@ -288,12 +278,6 @@ namespace CompteWin10.ViewModel
             {
                 Compte.Solde += rajout.Value;
             }
-=======
-        /// <returns></returns>
-        public async Task RecalculerSoldeCompte()
-        {
-            Compte.Solde = await _compteBusiness.GetSoldeCompteDate(DateSoldeCompte, Compte.Id);
->>>>>>> origin/master
             Compte = new Compte(Compte);
         }
 
@@ -303,13 +287,8 @@ namespace CompteWin10.ViewModel
         /// <param name="listeMouvementRajout">une liste de mouvement à rajouter en plus de ceux en base</param>
         private async Task RecompterPage(List<Mouvement> listeMouvementRajout)
         {
-<<<<<<< HEAD
             NombrePages = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)? await _compteBusiness.GetNombrePageCompte(Compte.Id, NbOccurencesMax,DateSoldeCompte,(listeMouvementRajout != null)? listeMouvementRajout.Count():0):1;
             await ChangePage(NombrePages, false, false, listeMouvementRajout);
-=======
-            NombrePages = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal)? await _compteBusiness.GetNombrePageCompte(Compte.Id, NbOccurencesMax,DateSoldeCompte):1;
-            await ChangePage(NombrePages, false, false);
->>>>>>> origin/master
         }
 
         /// <summary>
@@ -348,11 +327,7 @@ namespace CompteWin10.ViewModel
 
             //Chargement de la liste des mouvements
             ListeMouvements = new ObservableCollection<Mouvement>((App.ModeApp == AppareilEnum.ModeAppareilPrincipal) ?
-<<<<<<< HEAD
                 await _mouvementBusiness.GetListeMouvement(Compte.Id, PageEnCours, NbOccurencesMax,DateSoldeCompte,listeRajout) : await RoamingMouvementBusiness.GetMouvementsRoaming(Compte.Id));
-=======
-                await _mouvementBusiness.GetListeMouvement(Compte.Id, PageEnCours, NbOccurencesMax,DateSoldeCompte) : await RoamingMouvementBusiness.GetMouvementsRoaming(Compte.Id));
->>>>>>> origin/master
 
         }
 
