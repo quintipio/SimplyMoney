@@ -20,19 +20,12 @@ namespace CompteWin10.Business
         /// <param name="idCompte">l'id du comtpe sur lequel s'effectue la recherche</param>
         /// <param name="limit">le nombre d'occurence par pages</param>
         /// <param name="dateLimite">le nombre d'occurence par pages</param>
-<<<<<<< HEAD
         /// <param name="nbRajout">le nombre d'occurence par pages</param>
         /// <returns>le nombre de page</returns>
         public async Task<int> GetNombrePageCompte(int idCompte, int limit,DateTime dateLimite,int nbRajout)
         {
             var nboccurences = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte && x.Date<=dateLimite).CountAsync();
             nboccurences += nbRajout;
-=======
-        /// <returns>le nombre de page</returns>
-        public async Task<int> GetNombrePageCompte(int idCompte, int limit,DateTime dateLimite)
-        {
-            var nboccurences = await Bdd.Connection.Table<Mouvement>().Where(x => x.IdCompte == idCompte && x.Date<=dateLimite).CountAsync();
->>>>>>> origin/master
             var res =  nboccurences / limit;
             if(nboccurences%limit >  0)
             {
