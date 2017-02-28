@@ -1,17 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-<<<<<<< HEAD
   <Identity Name="19576QuentinDelfour.Simplymoney" Version="1.2.1.0" />
   <Properties>
     <DisplayName>Simply money</DisplayName>
     <PublisherDisplayName></PublisherDisplayName>
-=======
-  <Identity Name="19576QuentinDelfour.Simplymoney" Publisher="CN=50FA6259-7CEF-4656-957F-39158747E417" Version="1.2.0.0" />
-  <mp:PhoneIdentity PhoneProductId="8ac6e563-710c-4f17-a6bf-f6a5efd6ccf5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
-  <Properties>
-    <DisplayName>Simply money</DisplayName>
-    <PublisherDisplayName>Quentin Delfour</PublisherDisplayName>
->>>>>>> origin/master
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
