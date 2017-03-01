@@ -211,9 +211,12 @@ namespace CompteWin10.View
         {
                 if (_isLoad)
                 {
+                    _isLoad = false;
                     await ViewModel.UpdateDateSoldeCompte();
                     ScrollToBottom();
-                }
+                    _isLoad = true;
+            }
+           
         }
     }
 }

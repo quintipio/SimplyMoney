@@ -20,7 +20,7 @@ namespace CompteWin10.Context
         /// <summary>
         /// version de l'application
         /// </summary>
-        public const string Version = "1.2.1";
+        public const string Version = "1.2.2";
 
         /// <summary>
         /// nom du développeur
@@ -35,7 +35,7 @@ namespace CompteWin10.Context
         /// <summary>
         /// Clé de chiffrement pour les dossiers en roaming
         /// </summary>
-        public const string CleChiffrement = "";
+        public const string CleChiffrement = "'";
 
         /// <summary>
         /// Fichier des données de compte et de banque en roaming

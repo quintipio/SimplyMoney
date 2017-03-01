@@ -31,6 +31,7 @@ namespace CompteWin10.ViewModel
         public List<Mouvement> ListeRajoutMouvement;
 
         private const int NbOccurencesMax = 100;
+        public DateTime dateEnCours;
 
         #region init
         /// <summary>
@@ -63,7 +64,7 @@ namespace CompteWin10.ViewModel
             IsDateSoldeCompteVisible = (App.ModeApp == AppareilEnum.ModeAppareilPrincipal);
             DateSoldeCompte = DateUtils.GetMaintenant();
             await RecompterPage(null);
-            
+
             //PARTIE GESTION MOUVEMENT
             //préparation des données
             ListeCategorie = new CollectionViewSource { IsSourceGrouped = true };
@@ -233,7 +234,8 @@ namespace CompteWin10.ViewModel
                                     IdMouvementVirement = 0,
                                     IsTypePerso = echeancier.IsTypePerso,
                                     Numero = 0,
-                                    ModeMouvement = echeancier.ModeMouvement
+                                    ModeMouvement = echeancier.ModeMouvement,
+                                    Lock = true
                                 };
                                 ListeRajoutMouvement.Add(mouv);
                                 if (mouv.Debit > 0)

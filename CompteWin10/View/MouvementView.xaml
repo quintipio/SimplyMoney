@@ -12,6 +12,7 @@
         <converter:TypeMouvementObjectConverter x:Key="TypeMouvementObjectConverter"/>
         <converter:IntStringConverter x:Key="IntStringConverter"/>
         <converter:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
+        <converter:BoolVisibilityInvertConverter x:Key="BoolVisibilityInvertConverter"/>
         <converter:SousCategorieObjectConverter x:Key="SousCategorieObjectConverter"/>
         <converter:SousCategorieStringConverter x:Key="SousCategorieStringConverter"/>
         <converter:DateStringConverter x:Key="DateStringConverter"/>
@@ -75,8 +76,8 @@
                                         <TextBlock Grid.Column="0" Text="{Binding Date, Converter={StaticResource DateStringConverter}}"  Margin="0,0,10,0" VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="1" Text="{Binding Type, Converter={StaticResource SousCategorieStringConverter}}" TextWrapping="Wrap" VerticalAlignment="Center"/>
                                         <TextBlock Grid.Column="2" Text="{Binding MouvementChiffre}" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                        <CheckBox Grid.Column="3" x:Name="MouvementPasseCheckBox" Tag="{Binding}"  x:Uid="PasseContent" HorizontalAlignment="Right" IsChecked="{Binding IsPasse,Mode=OneWay}" Click="MouvementPasseCheckBox_Click"/>
-                                        <AppBarButton Grid.Column="4"  Icon="Edit" Width="50" Height="50" IsCompact="True" Tag="{Binding}"  Click="OpenMouvement_Click"/>
+                                        <CheckBox Grid.Column="3" x:Name="MouvementPasseCheckBox" Tag="{Binding}"  x:Uid="PasseContent" HorizontalAlignment="Right" IsChecked="{Binding IsPasse,Mode=OneWay}" Click="MouvementPasseCheckBox_Click" Visibility="{Binding Lock,Mode=OneWay,Converter={StaticResource BoolVisibilityInvertConverter}}"/>
+                                        <AppBarButton Grid.Column="4"  Icon="Edit" Width="50" Height="50" IsCompact="True" Tag="{Binding}"  Click="OpenMouvement_Click" Visibility="{Binding Lock,Mode=OneWay,Converter={StaticResource BoolVisibilityInvertConverter}}"/>
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

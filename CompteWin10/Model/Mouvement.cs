@@ -116,6 +116,13 @@ namespace CompteWin10.Model
         [XmlIgnore]
         public double Chiffre { get; set; }
 
+        /// <summary>
+        /// Indique si le mouvement est modifiable ou non
+        /// </summary>
+        [Ignore]
+        [XmlIgnore]
+        public bool Lock { get; set; }
+
 
         public override string ToString()
         {
