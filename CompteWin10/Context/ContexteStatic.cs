@@ -20,7 +20,7 @@ namespace CompteWin10.Context
         /// <summary>
         /// version de l'application
         /// </summary>
-        public const string Version = "1.2.2";
+        public const string Version = "1.2.3";
 
         /// <summary>
         /// nom du développeur
@@ -75,6 +75,6 @@ namespace CompteWin10.Context
         /// <summary>
         /// La liste des couleurs applicables pour le thème
         /// </summary>
-        public static readonly List<uint> ListeCouleur = new List<uint> { 0xFF51B651, 0xFF610000, 0xFF613E00, 0xFF616100, 0xFF0D6100, 0xFF00613F, 0xFF00615D, 0xFF001661, 0xFF4F0061, 0xFF610039 };
+        public static readonly List<uint> ListeCouleur = new List<uint> { 0xFF51B651, 0xFF610000, 0xFF613E00, 0xFF616100, 0xFF0D6100, 0xFF00613F, 0xFF00615D, 0xFF001661, 0xFF4F0061, 0xFF610039, 0xFF7AFF7A, 0xFFFF6565, 0xFFFFC45C, 0xFFEDED98, 0xFFAAFF9D, 0xFFA4E8D0, 0xFFE8A6E2, 0xFF7192FF, 0xFFDF6CF9, 0xFFFF88CE };
     }
 }
